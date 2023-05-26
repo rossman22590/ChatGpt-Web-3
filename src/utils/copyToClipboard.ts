@@ -6,7 +6,7 @@ export function copyToClipboard(text: string) {
         await navigator.clipboard.writeText(text)
         resolve(text)
       } catch (err) {
-        // 无操作
+        // No operation
       }
     }
 
