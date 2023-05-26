@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./src/assets/openai.svg" style="width:64px;height:64px;margin:0 32px" alt="icon"/>
+<img src="./src/assets/openai.svg" style="width:64px;height:64px;margin:0 32px" alt="icon"/> 
 
 <h1 align="center">ChatGPT Web</h1>
 
