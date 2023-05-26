@@ -40,7 +40,7 @@ function DrawPage() {
   })
   const handleDraw = (res: ResponseData<Array<{ url: string }>>) => {
     if (res.code || res.data.length <= 0) {
-      message.error('请求错误 🙅')
+      message.error('Request errors 🙅')
       return
     }
     setDrawResultData({
@@ -85,8 +85,8 @@ function DrawPage() {
                 src="https://www.imageoss.com/images/2023/05/05/Midjourneybf2f31b4a2ac2dc9.png"
                 alt="Midjourney"
               />
-              <h2>AI 一下，妙笔生画</h2>
-              <h4>只需一句话，让你的文字变成画作</h4>
+              <h2>Ai, wonderful strokes</h2>
+              <h4>Just one word, make your text a painting</h4>
             </div>
             <div
               className={styles.drawPage_create}
@@ -111,12 +111,12 @@ function DrawPage() {
             <div className={styles.drawPage_mydraw}>
               <div className={styles.drawPage_mydraw_header}>
                 <div>
-                  <h4>我的绘画</h4>
-                  <p>请及时保存绘画图片，链接可能会失效</p>
+                  <h4>My painting</h4>
+                  <p>Please save the painting and pictures in time, the link may be invalidated</p>
                 </div>
                 <Popconfirm
-                  title="清除历史绘画"
-                  description="确定清除所有绘画数据吗？"
+                  title="Clear historical painting"
+                  description="Are you sure of clearing all painting data?"
                   onConfirm={() => {
                     clearhistoryDrawImages()
                   }}
@@ -146,7 +146,7 @@ function DrawPage() {
           <div className={styles.drawPage_container_two}>
             <div className={styles.drawPage_config}>
               <Space direction="vertical">
-                <p>图片尺寸({drawConfig.size})</p>
+                <p>size of the picture({drawConfig.size})</p>
                 <Radio.Group
                   buttonStyle="solid"
                   defaultValue={drawConfig.size}
@@ -159,7 +159,7 @@ function DrawPage() {
                   <Radio.Button value={'512x512'}>512x512</Radio.Button>
                   <Radio.Button value={'1024x1024'}>1024x1024</Radio.Button>
                 </Radio.Group>
-                <p>图片数量({drawConfig.n}张)</p>
+                <p>Number of pictures({drawConfig.n}open)</p>
               </Space>
               <Slider
                 defaultValue={drawConfig.n}
@@ -180,14 +180,14 @@ function DrawPage() {
                   setConfigModal(true)
                 }}
               >
-                系统配置
+                System Configuration
               </Button> */}
             </div>
             <Input.Search
               value={drawConfig.prompt}
-              placeholder="请输入修饰词"
+              placeholder="Please enter the modified word"
               allowClear
-              enterButton={drawResultData.loading ? '绘制中...' : '开始绘制'}
+              enterButton={drawResultData.loading ? 'Drawing ...' : 'Start drawing'}
               size="large"
               loading={drawResultData.loading}
               onSearch={() => {
