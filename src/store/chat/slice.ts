@@ -4,33 +4,33 @@ import { ChatGpt, ChatsInfo } from '@/types'
 import { formatTime, generateChatInfo } from '@/utils'
 
 export interface ChatState {
-  // 聊天对话
+  // Chat dialogue
   chats: Array<ChatsInfo>
-  // 当前选择的会话id
+  // The session ID of the currently selected
   selectChatId: string | number
-  // 新增一个对话
+  // Add a new conversation
   addChat: () => void
-  // 删除一个对话
+  // Delete a dialogue
   delChat: (id: string | number) => void
-  // 清空所有对话
+  // All dialogue
   clearChats: () => void
-  // 改变选择会话ID
+  // Change the choice of session ID
   changeSelectChatId: (id: string | number) => void
-  // 给对话添加数据
+  // Add data to dialogue
   setChatInfo: (
     id: string | number,
     data?: ChatGpt,
     info?: ChatsInfo | { [key: string]: any }
   ) => void
-  // 修改对话数据
+  // Modify the dialogue data
   setChatDataInfo: (
     id: string | number,
     messageId: string | number,
     info?: ChatGpt | { [key: string]: any }
   ) => void
-  // 清理当前会话
+  // Clean up the current session
   clearChatMessage: (id: string | number) => void
-  // 删除某条消息
+  // Delete a message
   delChatMessage: (id: string | number, messageId: string | number) => void
 }
 
