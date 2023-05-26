@@ -44,7 +44,7 @@ function HeaderRender(props: HeaderViewProps, defaultDom: React.ReactNode) {
   function onRefreshBalance() {
     setBalance((b) => ({ ...b, loading: true }))
     if (token) {
-      // 获取用户信息
+      // Get user information
       fetchUserInfo()
         .then((res) => {
           if (res.code) return
@@ -89,7 +89,7 @@ function HeaderRender(props: HeaderViewProps, defaultDom: React.ReactNode) {
                   {
                     key: 'lijiqiandao',
                     icon: <UserOutlined />,
-                    label: '立即签到',
+                    label: 'Sign in now',
                     onClick: () => {
                       navigate('/shop')
                     }
@@ -97,7 +97,7 @@ function HeaderRender(props: HeaderViewProps, defaultDom: React.ReactNode) {
                   {
                     key: 'wodeyue',
                     icon: <PayCircleOutlined />,
-                    label: '我的余额',
+                    label: 'My balance',
                     onClick: () => {
                       navigate('/shop')
                     }
@@ -105,7 +105,7 @@ function HeaderRender(props: HeaderViewProps, defaultDom: React.ReactNode) {
                   {
                     key: 'xiaofeijilu',
                     icon: <ReconciliationOutlined />,
-                    label: '消费记录',
+                    label: 'Expenses record',
                     onClick: () => {
                       navigate('/shop')
                     }
@@ -113,7 +113,7 @@ function HeaderRender(props: HeaderViewProps, defaultDom: React.ReactNode) {
                   {
                     key: 'logout',
                     icon: <LogoutOutlined />,
-                    label: '退出登录',
+                    label: 'sign out',
                     onClick: () => {
                       logout()
                       navigate('/login')
@@ -149,7 +149,7 @@ function HeaderRender(props: HeaderViewProps, defaultDom: React.ReactNode) {
                 onRefreshBalance()
               }}
             >
-              <p>余额：{balance.number}</p> <SyncOutlined spin={balance.loading} />
+              <p>Balance：{balance.number}</p> <SyncOutlined spin={balance.loading} />
             </div>
           </div>
         ) : (
@@ -159,7 +159,7 @@ function HeaderRender(props: HeaderViewProps, defaultDom: React.ReactNode) {
               setLoginModal(true)
             }}
           >
-            登录 / 注册
+            log in / Register
           </Button>
         )}
         {props.isMobile && (
