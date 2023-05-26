@@ -28,17 +28,17 @@ function GoodsPay() {
   } = {
     wxpay: {
       icon: 'https://files.catbox.moe/b1joiq.png',
-      message: '请使用微信扫码支付',
+      message: 'Please use WeChat scan code to pay',
       color: '#24aa39'
     },
     alipay: {
       icon: 'https://files.catbox.moe/a8x6il.png',
-      message: '请使用支付宝扫码支付',
+      message: 'Please use Alipay to scan the code to pay',
       color: '#1678ff'
     },
     qqpay: {
       icon: 'https://files.catbox.moe/rimuzz.png',
-      message: '请使用QQ扫码支付',
+      message: 'Please use QQ scan code to pay',
       color: '#10b8f6'
     }
   }
@@ -105,9 +105,9 @@ function GoodsPay() {
   }
 
   function onPayResult() {
-    // 刷新记录
+    // Refresh record
     onTurnoverLog(1)
-    // 刷新用户信息
+    // Refresh user information
     // fetchUserInfo()
     setPayModal((p) => ({ ...p, status: 'loading', open: false }))
   }
@@ -116,7 +116,7 @@ function GoodsPay() {
 
   function useCarmi(carmi: string) {
     if (!carmi) {
-      message.warning('请输入卡密')
+      message.warning('Please enter Card Mi')
       return
     }
     setCarmiLoading(true)
@@ -155,11 +155,11 @@ function GoodsPay() {
       <Layout>
         <div className={styles.goodsPay_container}>
           <Space direction="vertical" style={{ width: '100%' }}>
-            {/* 用户信息 */}
+            {/* User Info */}
             <UserInfoCard info={user_info} />
-            {/* 签到区域 */}
+            {/* Sign -in area */}
             <div className={styles.goodsPay_card}>
-              <h4>签到日历</h4>
+              <h4>Sign -in calendar</h4>
               <Button
                 loading={signinLoading}
                 type="primary"
@@ -179,17 +179,17 @@ function GoodsPay() {
                     })
                 }}
               >
-                {user_info?.is_signin ? '今日已签到' : '立即签到'}
+                {user_info?.is_signin ? 'Sign in today' : 'Sign in now'}
               </Button>
             </div>
-            {/* 卡密充值区 */}
+            {/* Kami recharge area */}
             <div className={styles.goodsPay_card}>
-              <h4>卡密充值</h4>
+              <h4>Densely recharge</h4>
               <Input.Search
                 loading={carmiLoading}
-                placeholder="请输入充值卡密"
+                placeholder="Please enter the recharge card secret"
                 allowClear
-                enterButton="充值"
+                enterButton="Recharge"
                 size="large"
                 bordered
                 onSearch={useCarmi}
@@ -197,7 +197,7 @@ function GoodsPay() {
             </div>
             {goodsList.length > 0 && (
               <div className={styles.goodsPay_card}>
-                <h4>在线充值</h4>
+                <h4>Online recharge</h4>
                 <GoodsList
                   list={goodsList}
                   onChange={(item) => {
@@ -239,11 +239,11 @@ function GoodsPay() {
                       if (goods && goods.id && payType) {
                         onPay(goods, payType)
                       } else {
-                        message.warning('请选择商品和支付方式')
+                        message.warning('Please select the product and payment method')
                       }
                     }}
                   >
-                    立即充值
+                    Immediately recharge
                   </Button>
                 </div>
               </div>
@@ -254,7 +254,7 @@ function GoodsPay() {
                   onTurnoverLog(1)
                 }}
               >
-                订单记录 <SyncOutlined spin={turnover.loading} />
+                Order record <SyncOutlined spin={turnover.loading} />
               </h4>
               <Table<TurnoverInfo>
                 scroll={{
@@ -270,19 +270,19 @@ function GoodsPay() {
                 rowKey="id"
                 columns={[
                   {
-                    title: '描述',
+                    title: 'describe',
                     dataIndex: 'describe',
                     key: 'describe'
                   },
                   {
-                    title: '额度',
+                    title: 'Quota',
                     key: 'value',
                     render: (data) => {
                       return <a key={data.value}>{data.value}</a>
                     }
                   },
                   {
-                    title: '日期',
+                    title: 'date',
                     dataIndex: 'create_time',
                     key: 'create_time'
                   }
@@ -306,7 +306,7 @@ function GoodsPay() {
           <Modal
             open={payModal.open}
             onCancel={() => {
-              // 关闭
+              // closure
               setPayModal({
                 open: false,
                 status: 'loading'
@@ -341,7 +341,7 @@ function GoodsPay() {
 
               <div className={styles.payModal_message}>
                 {payModal.status === 'fail' ? (
-                  <p>创建订单失败，请重新尝试</p>
+                  <p>Failure to create an order, please try again</p>
                 ) : payModal.status === 'pay' && payInfo && goods ? (
                   <p>
                     <span>{(goods?.price / 100).toFixed(2)}元</span>
@@ -349,7 +349,7 @@ function GoodsPay() {
                     {payInfo[payType].message}
                   </p>
                 ) : (
-                  <p>正在创建订单中...</p>
+                  <p>In the creation of orders ...</p>
                 )}
               </div>
 
@@ -362,7 +362,7 @@ function GoodsPay() {
                         onPayResult()
                       }}
                     >
-                      取消支付
+                      Cancel payment
                     </Button>
                     <Button
                       type="primary"
@@ -370,7 +370,7 @@ function GoodsPay() {
                         onPayResult()
                       }}
                     >
-                      支付完成了
+                      Payment is complete
                     </Button>
                   </Space>
                 )}
