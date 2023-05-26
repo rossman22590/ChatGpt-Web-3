@@ -6,7 +6,7 @@ function ResultPage() {
   return (
     <Result
       status="success"
-      title="支付成功!"
+      title="payment successful!"
       subTitle=""
       extra={[
         <Button
@@ -15,7 +15,7 @@ function ResultPage() {
             navigate('/')
           }}
         >
-          返回首页
+          Back to homepage
         </Button>,
         <Button
           type="primary"
@@ -24,7 +24,7 @@ function ResultPage() {
             navigate('/shop')
           }}
         >
-          查看记录
+          View record
         </Button>
       ]}
     />
