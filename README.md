@@ -3,13 +3,13 @@
 
 <h1 align="center">ChatGPT Web</h1>
 
-English / [简体中文](https://github.com/79E/ChatGpt-Web/blob/master/README-CN.md)
+English / [Simplified Chinese](https://github.com/79E/ChatGpt-Web/blob/master/README-CN.md)
 
 A commercially-viable ChatGpt web application built with React.
 
 可部署商业化的 ChatGpt 网页应用。
 
-[Issues](https://github.com/79E/ChatGPT-Web/issues) / [Buy Me a Coffee](https://www.buymeacoffee.com/beggar) / [赞助我](https://files.catbox.moe/o0znrg.JPG)
+[Issues](https://github.com/79E/ChatGPT-Web/issues) / [Buy Me a Coffee](https://www.buymeacoffee.com/beggar) / [Sponsor me](https://files.catbox.moe/o0znrg.JPG)
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/79E/ChatGpt-Web)
 
