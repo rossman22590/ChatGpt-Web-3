@@ -1,26 +1,26 @@
 module.exports = {
-  // 继承的规则
+  // Rules of inheritance
   extends: ['@commitlint/config-conventional'],
-  // 定义规则类型
+  // Definition rules type
   rules: {
-    // type 类型定义，表示 git 提交的 type 必须在以下类型范围内
+    // type Type definition, indicating that the Type submitted by Git must be within the following type range
     'type-enum': [
       2,
       'always',
       [
-        'feat', // 新功能 feature
-        'fix', // 修复 bug
-        'docs', // 文档注释
-        'style', // 代码格式(不影响代码运行的变动)
-        'refactor', // 重构(既不增加新功能，也不是修复bug)
-        'perf', // 性能优化
-        'test', // 增加测试
-        'chore', // 构建过程或辅助工具的变动
-        'revert', // 回退
-        'build' // 打包
+        'feat', // new function feature
+        'fix', // repair bug
+        'docs', // Documentation comments
+        'style', // Code format (changes that do not affect code operation)
+        'refactor', // Refactoring (neither adding new features nor fixing bugs)
+        'perf', // performance optimization
+        'test', // add test
+        'chore', // Changes to the build process or accessibility tools
+        'revert', // go back
+        'build' // Pack
       ]
     ],
-    // subject 大小写不做校验
+    // subject Case does not check
     'subject-case': [0]
   }
 }
