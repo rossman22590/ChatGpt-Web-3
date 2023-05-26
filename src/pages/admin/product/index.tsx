@@ -23,45 +23,45 @@ function ProductPage() {
             width: 180,
         },
         {
-            title: '标题',
+            title: 'title',
             dataIndex: 'title',
         },
         {
-            title: '价格',
+            title: 'price',
             dataIndex: 'price',
             render: (_, data) => {
                 return <a>{data.price}分</a>
             }
         },
         {
-            title: '原价',
+            title: 'Original price',
             dataIndex: 'original_price',
             render: (_, data) => {
-                return <a>{data.original_price}分</a>
+                return <a>{data.original_price}point</a>
             }
         },
         {
-            title: '积分/天数',
+            title: 'Points/days',
             dataIndex: 'integral',
             render: (_, data) => {
-                return <a>{data.integral ? data.integral + '积分' : data.day ? data.day + '天' : '-'}</a>
+                return <a>{data.integral ? data.integral + 'integral' : data.day ? data.day + 'sky' : '-'}</a>
             }
         },
         {
-            title: '状态值',
+            title: 'State value',
             dataIndex: 'status',
-            render: (_, data) => <Tag color={data.status ? 'green' : 'red'}>{data.status ? '上架' : '下架'}</Tag>
+            render: (_, data) => <Tag color={data.status ? 'green' : 'red'}>{data.status ? 'Put on the shelves' : 'dropUp '}</Tag>
         },
         {
-            title: '创建时间',
+            title: 'Creation time',
             dataIndex: 'create_time',
         },
         {
-            title: '更新时间',
+            title: 'Update time',
             dataIndex: 'update_time',
         },
         {
-            title: '操作',
+            title: 'operate',
             width: 160,
             valueType: 'option',
             fixed: 'right',
@@ -81,7 +81,7 @@ function ProductPage() {
                         });
                     }}
                 >
-                    编辑
+                    edit
                 </Button>,
                 <Button
                     key="del"
@@ -92,12 +92,12 @@ function ProductPage() {
                             id: data.id
                         }).then((res) => {
                             if (res.code) return
-                            message.success('删除成功')
+                            message.success('successfully deleted')
                             tableActionRef.current?.reload()
                         })
                     }}
                 >
-                    删除
+                    delete
                 </Button>
             ]
         }
@@ -112,7 +112,7 @@ function ProductPage() {
                     x: 1200
                 }}
                 request={async (params, sorter, filter) => {
-                    // 表单搜索项会从 params 传入，传递给后端接口。
+                    // Form search items will be passed in from Params and passed to the rear port interface.
                     const res = await getAdminProducts({
                         page: params.current || 1,
                         page_size: params.pageSize || 10,
@@ -147,7 +147,7 @@ function ProductPage() {
                 bordered
             />
             <ModalForm<ProductInfo>
-                title="商品信息"
+                title="Product information"
                 open={edidInfoModal.open}
                 form={form}
                 initialValues={{
@@ -167,7 +167,7 @@ function ProductPage() {
                 onFinish={async (values) => {
                     console.log(values);
                     if(!values.integral && !values.day){
-                        message.error('请填写积分或者天数')
+                        message.error('Please fill in the points or days')
                         return false
                     }
                     const data = { ...values }
@@ -177,57 +177,57 @@ function ProductPage() {
                         data.integral = 0
                     }
                     if (edidInfoModal.info?.id) {
-                        console.log('进入编辑')
+                        console.log('Enter the editor ')
                         const res = await putAdminProduct({
                             ...data,
                             id: edidInfoModal.info?.id,
                         });
                         if (res.code) {
-                            message.error('编辑失败')
+                            message.error('Edit failure')
                             return false;
                         }
                         tableActionRef.current?.reload?.();
                     } else {
                         const res = await postAdminProduct(data);
                         if (res.code) {
-                            message.error('新增失败')
+                            message.error('New failure')
                             return false
                         }
                         tableActionRef.current?.reloadAndRest?.();
-                        message.success('提交成功');
+                        message.success('Submitted successfully');
                     }
                     return true;
                 }}
                 size="large"
                 modalProps={{
-                    cancelText: '取消',
-                    okText: '提交'
+                    cancelText: 'Cancel',
+                    okText: 'submit'
                 }}
             >
                 <ProFormGroup>
                     <ProFormText
                         name="title"
-                        label="标题"
-                        placeholder="标题"
-                        rules={[{ required: true, message: '请输入商品标题' }]}
+                        label="title"
+                        placeholder="title"
+                        rules={[{ required: true, message: 'Please enter the product title ' }]}
                     />
                     <ProFormText
                         name="badge"
-                        label="角标"
-                        placeholder="角标"
-                        rules={[{ required: true, message: '请输入角标' }]}
+                        label="Subscript"
+                        placeholder="Subscript"
+                        rules={[{ required: true, message: 'Please enter the corner label' }]}
                     />
                     <ProFormRadio.Group
                         name="status"
-                        label="状态"
+                        label="state"
                         radioType="button"
                         options={[
                             {
-                                label: '下架',
+                                label: 'Get off the shelves',
                                 value: 0,
                             },
                             {
-                                label: '上架',
+                                label: 'Put on the shelves',
                                 value: 1,
                             },
                         ]}
@@ -236,14 +236,14 @@ function ProductPage() {
 
                 <ProFormGroup>
                     <ProFormDigit
-                        label="价格(分)"
+                        label="Price (score)"
                         name="price"
                         min={1}
                         max={1000000}
-                        rules={[{ required: true, message: '请输入商品价格,单位为分' }]}
+                        rules={[{ required: true, message: 'Please enter the price of the product, the unit is divided into' }]}
                     />
                     <ProFormDigit
-                        label="原价(分)"
+                        label="Original price (score)"
                         name="original_price"
                         min={0}
                         max={1000000}
@@ -259,13 +259,13 @@ function ProductPage() {
                     />
                     <ProFormDigit
                         width="sm"
-                        label="会员天数"
+                        label="Number of membership days"
                         name="day"
                         min={0}
                         max={1000000}
                     />
                 </ProFormGroup>
-                <p>积分与天数只能填写一个（如两个都填写优先拿积分）</p>
+                <p>Points and days can only be filled in one (such as filling in both to get the points first)</p>
             </ModalForm>
         </div>
     )
