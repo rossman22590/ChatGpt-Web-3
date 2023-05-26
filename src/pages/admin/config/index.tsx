@@ -42,7 +42,7 @@ function ConfigPage() {
     function onGetConfig() {
         getAdminConfig().then((res) => {
             if (res.code) {
-                message.error('获取配置错误')
+                message.error('Get configuration error')
                 return
             }
             onRewardFormSet(res.data)
@@ -57,10 +57,10 @@ function ConfigPage() {
     async function onSave(values: any){
         return putAdminConfig(values).then((res) => {
             if (res.code) {
-                message.error('保存失败')
+                message.error('Preservation failure')
                 return
             }
-            message.success('保存成功')
+            message.success('Saved successfully')
             onGetConfig()
         })
     }
@@ -72,16 +72,16 @@ function ConfigPage() {
             }}
             >
                 <div className={styles.config_form}>
-                    <h3>奖励激励</h3>
+                    <h3>Reward incentive</h3>
                     <QueryFilter
                         form={rewardForm}
                         onFinish={async (values: any) => {
                             putAdminConfig(values).then((res) => {
                                 if (res.code) {
-                                    message.error('保存失败')
+                                    message.error('Preservation failure')
                                     return
                                 }
-                                message.success('保存成功')
+                                message.success('Saved successfully')
                                 onGetConfig()
                             })
                         }}
@@ -93,27 +93,27 @@ function ConfigPage() {
                         defaultCollapsed={false}
                         requiredMark={false}
                         defaultColsNumber={79}
-                        searchText="保存"
-                        resetText="恢复"
+                        searchText="keep"
+                        resetText="recover"
                     >
                         <ProFormDigit
                             name="register_reward"
-                            label="注册奖励"
-                            tooltip="新用户注册赠送积分数量"
+                            label="Register"
+                            tooltip="New user registration gift number quantity"
                             min={0}
                             max={100000}
                         />
                         <ProFormDigit
                             name="signin_reward"
-                            label="签到奖励"
-                            tooltip="每日签到赠送积分数量"
+                            label="Sign in"
+                            tooltip="Daily sign -in gifts"
                             min={0}
                             max={100000}
                         />
                     </QueryFilter>
                 </div>
                 <div className={styles.config_form}>
-                    <h3>历史记录</h3>
+                    <h3>history record</h3>
                     <QueryFilter
                         form={historyMessageForm}
                         onFinish={onSave}
@@ -125,13 +125,13 @@ function ConfigPage() {
                         defaultCollapsed={false}
                         requiredMark={false}
                         defaultColsNumber={79}
-                        searchText="保存"
-                        resetText="恢复"
+                        searchText="keep"
+                        resetText="recover"
                     >
                         <ProFormDigit
                             name="history_message_count"
-                            label="携带数量"
-                            tooltip="新用户注册赠送积分数量"
+                            label="Number"
+                            tooltip="New user registration gift number quantity"
                             min={1}
                             max={100000}
                         />
