@@ -6,33 +6,33 @@ function Reminder(){
         {
             id: 'zhichangzhuli',
             icon: 'https://www.imageoss.com/images/2023/04/23/Frame2x11dd9e54d8caafc4b2.png',
-            name: '职场助理',
-            desc: '作为手机斗地主游戏的产品经理，该如何做成国内爆款？'
+            name: 'Workplace assistant',
+            desc: 'As a product manager of the landlord game of the mobile phone, how to make a domestic explosion?'
         },
         {
             id: 'dianyingjiaoben',
             icon: 'https://www.imageoss.com/images/2023/04/23/Frame2x12ff8d52b031b85fbe.png',
-            name: '电影脚本',
-            desc: '写一段电影脚本，讲一个北漂草根创业逆袭的故事'
+            name: 'Movie script',
+            desc: 'Write a movie script and tell a story of a North drifting grass root entrepreneurship counterattack'
         },
         {
             id: 'cuanxieduanwen',
             icon: 'https://www.imageoss.com/images/2023/04/23/Frame2x132f6276a56cf44e81.png',
-            name: '撰写短文',
-            desc: '写一篇短文，用故事阐释幸福的意义'
+            name: 'Writing short essay',
+            desc: 'Write a short article to explain the meaning of happiness in the story'
         },{
             id: 'daimabianxie',
             icon: 'https://www.imageoss.com/images/2023/04/23/Frame2x14a0f6c48d4355c6ea.png',
-            name: '代码编写',
-            desc: '使用JavaScript写一个获取随机数的函数'
+            name: 'Code writing',
+            desc: 'Use JavaScript to write a function to get random numbers'
         }
     ]
 
     return (
 <div className={styles.reminder}>
-        <h2 className={styles.reminder_title}><img src="https://www.imageoss.com/images/2023/04/23/robot-logo4987eb2ca3f5ec85.png" alt="" />欢迎来到 {import.meta.env.VITE_APP_TITLE}</h2>
-        <p className={styles.reminder_message}>与AI智能聊天，畅想无限可能！基于先进的AI引擎，让你的交流更加智能、高效、便捷！</p>
-        <p className={styles.reminder_message}><span>Shift</span> + <span>Enter</span> 换行。开头输入 <span>/</span> 召唤 Prompt 角色预设。</p>
+        <h2 className={styles.reminder_title}><img src="https://www.imageoss.com/images/2023/04/23/robot-logo4987eb2ca3f5ec85.png" alt="" />Welcome to {import.meta.env.VITE_APP_TITLE}</h2>
+        <p className={styles.reminder_message}>Chat with AI intelligence, imagine infinite possibilities!Based on advanced AI engines, make your communication more intelligent, efficient and convenient!</p>
+        <p className={styles.reminder_message}><span>Shift</span> + <span>Enter</span> Change. Start input<span>/</span> Summon Prompt character preset.</p>
         <div className={styles.reminder_question}>
             {
                 list.map((item)=>{
