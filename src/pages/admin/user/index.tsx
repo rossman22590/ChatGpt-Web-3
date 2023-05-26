@@ -29,13 +29,13 @@ function UserPage() {
             dataIndex: 'account',
         },
         {
-            title: '积分',
+            title: 'integral',
             width: 100,
             dataIndex: 'integral',
             render: (_, data) => <a>{data.integral}分</a>
         },
         {
-            title: '订阅',
+            title: 'subscription',
             dataIndex: 'subscribe',
             render: (_, data) => {
                 const today = new Date()
@@ -51,7 +51,7 @@ function UserPage() {
             }
         },
         {
-            title: '用户信息',
+            title: 'User Info',
             dataIndex: 'user_id',
             width: 160,
             render: (_, data) => {
@@ -65,7 +65,7 @@ function UserPage() {
             dataIndex: 'ip',
         },
         {
-            title: '状态',
+            title: 'state',
             dataIndex: 'status',
             width: 100,
             render: (_, data) => {
@@ -73,15 +73,15 @@ function UserPage() {
             }
         },
         {
-            title: '创建时间',
+            title: 'Creation time',
             dataIndex: 'create_time',
         },
         {
-            title: '更新时间',
+            title: 'Update time',
             dataIndex: 'update_time',
         },
         {
-            title: '操作',
+            title: 'operate',
             width: 150,
             valueType: 'option',
             fixed: 'right',
@@ -98,7 +98,7 @@ function UserPage() {
                     });
                 }}
                 >
-                    编辑
+                    edit
                 </Button>,
                 <Button key="del" type="text" danger onClick={() => {
                     delAdminUsers({
@@ -110,7 +110,7 @@ function UserPage() {
                     })
                 }}
                 >
-                    删除
+                    delete
                 </Button>
             ],
         },
@@ -129,7 +129,7 @@ function UserPage() {
                     x: 1800
                 }}
                 request={async (params, sorter, filter) => {
-                    // 表单搜索项会从 params 传入，传递给后端接口。
+                    // Form search items will be passed in from Params and passed to the rear port interface.
                     const res = await getAdminUsers({
                         page: params.current || 1,
                         page_size: params.pageSize || 10,
@@ -148,7 +148,7 @@ function UserPage() {
                 bordered
             />
             <ModalForm<UserInfo>
-                title="用户信息"
+                title="User Info"
                 open={edidInfoModal.open}
                 form={form}
                 initialValues={{
@@ -172,7 +172,7 @@ function UserPage() {
                         id: edidInfoModal.info?.id,
                     });
                     if (res.code) {
-                        message.error('编辑失败')
+                        message.error('Edit failure')
                         return false;
                     }
                     tableActionRef.current?.reload?.();
@@ -180,77 +180,77 @@ function UserPage() {
                 }}
                 size="large"
                 modalProps={{
-                    cancelText: '取消',
-                    okText: '提交'
+                    cancelText: 'Cancel',
+                    okText: 'submit'
                 }}
             >
                 <ProFormGroup>
                     <ProFormText
                         width="md"
                         name="account"
-                        label="用户账号"
-                        rules={[{ required: true, message: '请输入用户账号' }]}
+                        label="user account"
+                        rules={[{ required: true, message: 'Please enter the user account' }]}
                     />
                     <ProFormRadio.Group
                         name="role"
-                        label="角色"
+                        label="Role"
                         radioType="button"
                         options={[
                             {
-                                label: '用户',
+                                label: 'user',
                                 value: 'user',
                             },
                             {
-                                label: '管理员',
+                                label: 'administrator',
                                 value: 'administrator',
                             },
                         ]}
-                        rules={[{ required: true, message: '请输入剩余积分' }]}
+                        rules={[{ required: true, message: 'Please enter the remaining points' }]}
                     />
                     <ProFormRadio.Group
                         name="status"
-                        label="状态"
+                        label="state"
                         radioType="button"
                         options={[
                             {
-                                label: '异常',
+                                label: 'abnormal',
                                 value: 0,
                             },
                             {
-                                label: '正常',
+                                label: 'normal',
                                 value: 1,
                             },
                         ]}
-                        rules={[{ required: true, message: '请输入剩余积分' }]}
+                        rules={[{ required: true, message: 'Please enter the remaining points' }]}
                     />
                 </ProFormGroup>
                 <ProFormGroup>
                     <ProFormText
                         name="nickname"
-                        label="用户名称"
-                        rules={[{ required: true, message: '请输入用户名称' }]}
+                        label="user name"
+                        rules={[{ required: true, message: 'Please enter the user name' }]}
                     />
                     <ProFormText
                         width="lg"
                         name="avatar"
-                        label="用户头像"
-                        rules={[{ required: true, message: '请输入用户头像' }]}
+                        label="profile picture"
+                        rules={[{ required: true, message: 'Please enter the user avatar' }]}
                     />
                 </ProFormGroup>
 
                 <ProFormGroup>
                     <ProFormDigit
-                        label="剩余积分"
+                        label="Remaining points"
                         name="integral"
                         min={0}
                         max={1000000}
-                        rules={[{ required: true, message: '请输入剩余积分' }]}
+                        rules={[{ required: true, message: 'Please enter the remaining points' }]}
                     />
                     <ProFormDatePicker
                         width="md"
                         name="subscribe"
-                        label="会有截止日期"
-                        rules={[{ required: true, message: '请输入剩余积分' }]}
+                        label="There will be deadline"
+                        rules={[{ required: true, message: 'Please enter the remaining points' }]}
                     />
                 </ProFormGroup>
             </ModalForm>
