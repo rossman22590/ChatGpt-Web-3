@@ -26,7 +26,7 @@ export function LoginCard(props: {
       form={props.form}
       logo={import.meta.env.VITE_APP_LOGO}
       title=""
-      subTitle="全网最便宜的人工智能对话"
+      subTitle="The cheapest artificial intelligence dialogue on the entire network"
       actions={(
         <Space>
           <HeartFilled />
@@ -63,11 +63,11 @@ export function LoginCard(props: {
           prefix: <MailOutlined />
         }}
         name="account"
-        placeholder="邮箱"
+        placeholder="Mail"
         rules={[
           {
             required: true,
-            message: '请输入电子邮箱',
+            message: 'Please enter the email address',
             pattern: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/
           }
         ]}
@@ -80,18 +80,18 @@ export function LoginCard(props: {
         captchaProps={{
           size: 'large'
         }}
-        placeholder="验证码"
+        placeholder="Verification code"
         captchaTextRender={(timing, count) => {
           if (timing) {
-            return `${count} ${'获取验证码'}`
+            return `${count} ${'get verification code'}`
           }
-          return '获取验证码'
+          return 'get verification code'
         }}
         name="code"
         rules={[
           {
             required: true,
-            message: '请输入验证码！'
+            message: 'please enter verification code!'
           }
         ]}
         onGetCaptcha={async () => {
@@ -100,7 +100,7 @@ export function LoginCard(props: {
             props.form.setFields([
               {
                 name: 'account',
-                errors: ['请输入有效的邮箱地址']
+                errors: ['please enter a valid email address']
               }
             ])
             return Promise.reject()
@@ -121,7 +121,7 @@ export function LoginCard(props: {
   )
 }
 
-// 登录注册弹窗
+// Log in to register
 function LoginModal(props: Props) {
   const [loginForm] = Form.useForm()
 
