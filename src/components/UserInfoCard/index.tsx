@@ -28,8 +28,8 @@ function UserInfoCard(props: { info?: UserInfo }) {
       </div>
       <div className={styles.userInfo_vip}>
         <Space wrap size="large">
-          <Statistic title="积分" value={info?.integral} />
-          <Statistic title="会员(天)" value={subscribe} />
+          <Statistic title="integral" value={info?.integral} />
+          <Statistic title="Member (God)" value={subscribe} />
         </Space>
       </div>
     </div>
