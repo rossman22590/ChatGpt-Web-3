@@ -4,15 +4,15 @@ import { PromptInfo } from '@/types';
 import promptszh from '@/assets/prompts-zh.json';
 
 export interface PromptState {
-  // 本地角色
+  // Local character
   localPrompt: Array<PromptInfo>;
-  // 新增角色
+  // New role
   addPrompts: (list: Array<PromptInfo>) => void;
-  // 清除所有角色
+  // Clear all characters
   clearPrompts: () => void;
-  // 删除单个角色
+  // Delete a single role
   delPrompt: (info: PromptInfo) => void;
-  // 编辑角色信息
+  // Edit Character Information
   editPrompt: (oldKey: string, info: PromptInfo) => void;
 }
 
