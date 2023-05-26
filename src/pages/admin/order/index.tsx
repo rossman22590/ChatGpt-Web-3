@@ -23,13 +23,13 @@ function OrderPage() {
             fixed: 'left'
         },
         {
-            title: '支付方ID',
+            title: 'Payer ID',
             dataIndex: 'trade_no',
             render: (_, data) => (
                 <a onClick={() => {
                     if (data.notify_info && data.trade_no) {
                         setIsModalOpen({
-                            title: '支付方通知参数',
+                            title: 'Payer notification parameter',
                             json: data.notify_info,
                             open: true
                         })
@@ -37,17 +37,17 @@ function OrderPage() {
                 }
                 }
 
-                >{data.trade_no ? data.trade_no : '未支付'}
+                >{data.trade_no ? data.trade_no : 'unpaid'}
                 </a>
             )
         },
         {
-            title: '商品标题',
+            title: 'Product title',
             dataIndex: 'product_title',
             render: (_, data) => (
                 <a onClick={() => {
                     setIsModalOpen({
-                        title: '商品信息',
+                        title: 'Product information',
                         json: data.product_info,
                         open: true
                     })
@@ -57,72 +57,72 @@ function OrderPage() {
             )
         },
         {
-            title: '支付类型',
+            title: 'Payment Types',
             dataIndex: 'pay_type',
             width: 120,
             render: (_, data) => {
                 const type: { [key: string]: { [key: string]: string } } = {
                     alipay: {
                         color: 'blue',
-                        text: '支付宝'
+                        text: 'Alipay'
                     },
                     wxpay: {
                         color: 'green',
-                        text: '微信支付'
+                        text: 'WeChat payment'
                     },
 					qqpay: {
                         color: 'geekblue',
-                        text: 'QQ支付'
+                        text: 'QQ payment'
                     }
                 }
                 return <Tag color={type[data.pay_type].color}>{type[data.pay_type].text}</Tag>
             }
         },
         {
-            title: '支付金额',
+            title: 'Payment amount',
             dataIndex: 'money',
             width: 120,
             render: (_, data) => <Tag color="blue">{data.money}元</Tag>
         },
         {
-            title: '订单状态',
+            title: 'Order Status',
             dataIndex: 'trade_status',
             width: 180,
             render: (_, data) => {
                 const status:{ [key: string]: { [key: string]: string } } = {
                     TRADE_AWAIT: {
                         color: 'orange',
-                        text: '等待支付'
+                        text: 'wait for payment'
                     },
                     TRADE_SUCCESS: {
                         color: 'green',
-                        text: '支付成功'
+                        text: 'payment successful'
                     },
                     TRADE_CLOSED: {
                         color: 'red',
-                        text: '订单关闭'
+                        text: 'Order off'
                     },
                     TRADE_FINISHED: {
                         color: 'purple',
-                        text: '订单完毕'
+                        text: 'Finish'
                     }
                 }
                 return <Tag color={status[data.trade_status].color}>{status[data.trade_status].text}</Tag>
             }
         },
         {
-            title: '用户ID',
+            title: 'User ID',
             width: 200,
             dataIndex: 'user_id',
         },
         {
-            title: '支付渠道',
+            title: 'Payment channel',
             dataIndex: 'channel',
             width: 120,
             render: (_, data) => (
                 <a onClick={() => {
                     setIsModalOpen({
-                        title: '支付渠道信息',
+                        title: 'Payment channel information',
                         json: data.payment_info,
                         open: true
                     })
@@ -133,25 +133,25 @@ function OrderPage() {
             )
         },
         {
-            title: '支付链接',
+            title: 'Payment link',
             dataIndex: 'pay_url',
             ellipsis: true,
             render: (_, data) => <a href={data?.pay_url || ''} target="_blank" rel="noreferrer">{data.pay_url}</a>
         },
         {
-            title: '额外参数',
+            title: 'Extra parameter',
             dataIndex: 'params',
             width: 100,
             render: (_, data) => (
                 <a onClick={() => {
                     setIsModalOpen({
-                        title: '额外参数',
+                        title: 'Extra parameter',
                         json: data.params,
                         open: true
                     })
                 }}
                 >
-                    点击查看
+                    Click to view
                 </a>
             )
         },
@@ -160,15 +160,15 @@ function OrderPage() {
             dataIndex: 'ip',
         },
         {
-            title: '创建时间',
+            title: 'Creation time',
             dataIndex: 'create_time',
         },
         {
-            title: '更新时间',
+            title: 'Update time',
             dataIndex: 'update_time',
         },
         // {
-        //     title: '操作',
+        //     title: 'operate',
         //     width: 160,
         //     valueType: 'option',
         //     fixed: 'right',
@@ -188,7 +188,7 @@ function OrderPage() {
         //                 });
         //             }}
         //         >
-        //             编辑
+        //             edit
         //         </Button>,
         //         <Button
         //             key="del"
@@ -199,12 +199,12 @@ function OrderPage() {
         //                     id: data.id
         //                 }).then((res) => {
         //                     if (res.code) return
-        //                     message.success('删除成功')
+        //                     message.success('successfully deleted')
         //                     tableActionRef.current?.reload()
         //                 })
         //             }}
         //         >
-        //             删除
+        //             delete
         //         </Button>
         //     ]
         // }
@@ -238,7 +238,7 @@ function OrderPage() {
                     x: 2000
                 }}
                 request={async (params, sorter, filter) => {
-                    // 表单搜索项会从 params 传入，传递给后端接口。
+                    // Form search items will be passed in from Params and passed to the rear port interface.
                     const res = await getAdminOrders({
                         page: params.current || 1,
                         page_size: params.pageSize || 10,
