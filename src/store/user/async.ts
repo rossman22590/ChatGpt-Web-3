@@ -2,7 +2,7 @@ import { RequestLoginParams } from '@/types'
 import userStore from '../user/slice'
 import { getUserInfo, postLogin } from '@/request/api'
 
-// 登录
+// Log in
 export async function fetchLogin(params: RequestLoginParams) {
   const response = await postLogin(params)
   if (!response.code) {
@@ -11,7 +11,7 @@ export async function fetchLogin(params: RequestLoginParams) {
   return response
 }
 
-// 获取用户信息
+// Get user information
 export async function fetchUserInfo() {
   const response = await getUserInfo()
   if (!response.code) {
