@@ -13,14 +13,14 @@ function isResponseData<T>(obj: any): obj is ResponseData<T> {
   return 'code' in obj && 'data' in obj && 'message' in obj
 }
 
-// 判断是否需要基础域名前缀
+// Determine whether the basic domain name prefix is required
 const getBaseUrl = (url: string) => {
   const baseURL = import.meta.env.VITE_APP_REQUEST_HOST
   if (/^http(s?):\/\//i.test(url)) return url
   return baseURL + url
 }
 
-// 对Headers 进行一个变形
+// Make a deformation of headers
 function correctHeaders(
   method = 'GET',
   headers: HeadersInit & {
@@ -40,7 +40,7 @@ function correctHeaders(
   return headers
 }
 
-// 判断是否为Object
+// Determine whether it is Object
 const isPlainObject = (obj: any) => {
   if (!obj || Object.prototype.toString.call(obj) !== '[object Object]') {
     return false
@@ -51,9 +51,9 @@ const isPlainObject = (obj: any) => {
   return typeof Ctor === 'function' && Ctor === Object
 }
 
-// 请求拦截器
+// Request interceptor
 const interceptorsRequest = (config: { url: string; options?: RequestInit }) => {
-  console.log('请求拦截器', config)
+  console.log('Request interceptor', config)
   const options = {
     ...config.options,
     headers: {
@@ -64,9 +64,9 @@ const interceptorsRequest = (config: { url: string; options?: RequestInit }) => 
   return { ...options }
 }
 
-// 响应拦截器
+// Response interceptor
 const interceptorsResponse = async <T>(options: any, response: any): Promise<ResponseData<T>> => {
-  console.log('响应拦截器：', options, response)
+  console.log('Response interceptor:', options, response)
   let data: ResponseData<T> = await response.json()
 
   if (!isResponseData(data)) {
@@ -83,8 +83,8 @@ const interceptorsResponse = async <T>(options: any, response: any): Promise<Res
     }
     if (data.message) {
       notification.error({
-        message: '错误',
-        description: data.message ? data.message : '网络请求错误',
+        message: 'mistake',
+        description: data.message ? data.message : 'Network request error',
         style: {
           top: 60,
           zIndex: 1011
@@ -95,11 +95,11 @@ const interceptorsResponse = async <T>(options: any, response: any): Promise<Res
   return data
 }
 
-// 错误拦截器
+// Error interceptor
 const interceptorsErrorResponse = async (data: ResponseData<any>) => {
   notification.error({
-    message: '错误',
-    description: data.message ? data.message : '网络请求错误',
+    message: 'mistake',
+    description: data.message ? data.message : 'Network request error',
     style: {
       top: 60,
       zIndex: 1011
@@ -107,13 +107,13 @@ const interceptorsErrorResponse = async (data: ResponseData<any>) => {
   })
 }
 
-// 请求
+// ask
 const request = <T>(
   url: string,
   options?: RequestInit | { [key: string]: any },
   config?: RequestConfig
 ): Promise<ResponseData<T>> => {
-  // 超时时间
+  // overtime time
   const { timeout = 15000 } = config || {}
   let timeoutId: string | number | NodeJS.Timeout | null | undefined = null
 
@@ -125,28 +125,28 @@ const request = <T>(
 
   options = {
     method: 'GET',
-    // 请求控制器
+    // Request controller
     signal,
     ...options,
     headers: correctHeaders(options?.method, options?.headers)
   }
 
-  // 导入请求拦截器
+  // Import request interceptor
   options = interceptorsRequest({
     url,
     options
   })
 
-  // 超时处理
+  // Overtime
   const timeoutPromise = (timeout: number): Promise<ResponseData<any>> => {
     if (timeout <= 0) {
       return new Promise(() => {
-        // ======= 等待 =======
+        // ======= wait =======
       })
     }
     return new Promise((resolve) => {
       timeoutId = setTimeout(() => {
-        const data = { code: 504, data: [], message: '请求超时，请稍后重新尝试。' }
+        const data = { code: 504, data: [], message: 'The request timeout, please try it later.' }
         interceptorsErrorResponse(data)
         controller.abort()
         resolve(data)
@@ -154,7 +154,7 @@ const request = <T>(
     })
   }
 
-  // 发送请求
+  // send request
   const fetchPromise: Promise<ResponseData<T>> = new Promise((resolve, reject) => {
     fetch(url, options)
       .then(async (res) => {
