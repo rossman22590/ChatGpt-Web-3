@@ -24,27 +24,27 @@ import {
 const web = [
   {
     path: '/',
-    name: '对话',
+    name: 'dialogue',
     icon: <CommentOutlined />,
-    message: '与智能AI进行对话交流'
+    message: 'Dialogue with Smart AI'
   },
   {
     path: '/draw',
-    name: '绘画',
+    name: 'painting',
     icon: <PictureOutlined />,
-    message: '利用智能AI绘画出图片'
+    message: 'Use intelligent AI to draw pictures'
   },
   {
     path: '/shop',
-    name: '商城',
+    name: 'Mall',
     icon: <ShopOutlined />,
-    message: '账户余额和充值套餐记录'
+    message: 'Account balance and recharge package record'
   },
   {
     path: 'https://github.com/79E/ChatGpt-Web',
-    name: '项目地址',
+    name: 'project address',
     icon: <GithubOutlined />,
-    message: '免费开源可商业化AiWeb项目'
+    message: 'Free open source commercialization AIWEB project'
   }
 ]
 
@@ -53,89 +53,89 @@ const admin = {
   routes: [
     {
       path: '/admin',
-      name: '欢迎观临',
+      name: 'Welcome',
       icon: <SmileFilled />
     },
     {
       path: '/admin_base',
-      name: '基础管理',
+      name: 'Basic management',
       icon: <ExperimentFilled />,
       access: 'canAdmin',
       component: './Admin',
       routes: [
         {
           path: '/admin/carmi',
-          name: '卡密管理',
+          name: 'Dense management',
           icon: <LockFilled />
         },
         {
           path: '/admin/token',
-          name: 'Token管理',
+          name: 'Token management',
           icon: <InsuranceFilled />
         }
       ]
     },
     {
       path: '/admin_user',
-      name: '用户管理',
+      name: 'User Management',
       icon: <CrownFilled />,
       access: 'canAdmin',
       component: './Admin',
       routes: [
         {
           path: '/admin/user',
-          name: '用户列表',
+          name: 'user list',
           icon: <IdcardFilled />
         },
         {
           path: '/admin/turnover',
-          name: '消费记录',
+          name: 'Expenses record',
           icon: <ReconciliationFilled />
         },
         {
           path: '/admin/signin',
-          name: '签到记录',
+          name: 'Sign in',
           icon: <ScheduleFilled />
         }
       ]
     },
     {
-      name: '会话管理',
+      name: 'Session management',
       icon: <MessageFilled />,
       path: '/admin_message',
       routes: [
         {
           path: '/admin/messages',
-          name: '消息列表',
+          name: 'Message list',
           icon: <FileTextFilled />
         }
       ]
     },
     {
       path: '/admin_orders',
-      name: '商品和订单',
+      name: 'Commodity and order',
       icon: <GoldenFilled />,
       routes: [
         {
           path: '/admin/product',
-          name: '商品列表',
+          name: 'Product list',
           icon: <ShopFilled />
         },
         {
           path: '/admin/payment',
-          name: '支付配置',
+          name: 'Payment configuration',
           icon: <MoneyCollectFilled />
         },
         {
           path: '/admin/order',
-          name: '支付订单',
+          name: 'Payment order',
           icon: <WalletFilled />
         }
       ]
     },
     {
       path: '/admin/config',
-      name: '系统配置',
+      name: 'System Configuration',
       icon: <SettingFilled />
     },
     {
