@@ -40,14 +40,14 @@ function ChatMessage({
                 message.open({
                   key: copyMessageKey,
                   type: 'success',
-                  content: '复制成功'
+                  content: 'Replication'
                 })
               })
               .catch(() => {
                 message.open({
                   key: copyMessageKey,
                   type: 'error',
-                  content: '复制失败'
+                  content: 'Copy failure'
                 })
               })
           }
@@ -61,14 +61,14 @@ function ChatMessage({
       const copyBtn = markdownBodyRef.current.querySelectorAll('.code-block-header__copy')
       copyBtn.forEach((btn) => {
         btn.removeEventListener('click', () => {
-          // ==== 无需操作 ====
+          // ==== No need to operate ====
         })
       })
     }
   }
 
   function highlightBlock(str: string, lang: string, code: string) {
-    return `<pre class="code-block-wrapper"><div class="code-block-header"><span class="code-block-header__lang">${lang}</span><span class="code-block-header__copy">复制代码</span></div><code class="hljs code-block-body ${lang}">${str}</code></pre>`
+    return `<pre class="code-block-wrapper"><div class="code-block-header"><span class="code-block-header__lang">${lang}</span><span class="code-block-header__copy">Copy code</span></div><code class="hljs code-block-body ${lang}">${str}</code></pre>`
   }
 
   const mdi = new MarkdownIt({
@@ -105,13 +105,13 @@ function ChatMessage({
         <img className={styles.chatMessage_avatar} src={icon} alt="" />
         {status === 'error' && (
           <Popconfirm
-            title="删除此条消息"
-            description="此条消息为发送失败消息，是否要删除?"
+            title="Delete this message"
+            description="This message is to delete the failure of the sending failure?"
             onConfirm={() => {
               onDelChatMessage?.()
             }}
             onCancel={() => {
-              // === 无操作 ===
+              // === No operation ===
             }}
             okText="Yes"
             cancelText="No"
