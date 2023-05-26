@@ -36,7 +36,7 @@ function ChatPage() {
 
   const bodyResize = useDocumentResize()
 
-  // 角色预设
+  // Character preset
   const [roleConfigModal, setRoleConfigModal] = useState({
     open: false
   })
@@ -47,7 +47,7 @@ function ChatPage() {
     }
   }, [scrollRef.current, selectChatId, chats])
 
-  // 当前聊天记录
+  // Current chat record
   const chatMessages = useMemo(() => {
     const chatList = chats.filter((c) => c.id === selectChatId)
     if (chatList.length <= 0) {
@@ -56,7 +56,7 @@ function ChatPage() {
     return chatList[0].data
   }, [selectChatId, chats])
 
-  // 创建对话按钮
+  // Create a dialog button
   const CreateChat = () => {
     return (
       <Button
@@ -82,7 +82,7 @@ function ChatPage() {
     )
   }
 
-  // 对接服务端方法
+  // Docking server method
   async function serverChatCompletions({
     requestOptions,
     signal,
@@ -103,12 +103,12 @@ function ChatPage() {
         return res
       })
       .catch((error) => {
-        // 终止： AbortError
+        // termination: AbortError
         console.log(error.name)
       })
 
     if (!(response instanceof Response)) {
-      // 这里返回是错误 ...
+      // Back here is wrong ...
       setChatDataInfo(selectChatId, userMessageId, {
         status: 'error'
       })
@@ -121,7 +121,7 @@ ${JSON.stringify(response, null, 4)}
       })
       fetchController?.abort()
       setFetchController(null)
-      message.error('请求失败')
+      message.error('Request failed')
       return
     }
     const reader = response.body?.getReader?.()
@@ -133,7 +133,7 @@ ${JSON.stringify(response, null, 4)}
         setFetchController(null)
         break
       }
-      // 将获取到的数据片段显示在屏幕上
+      // Display the obtained data clips on the screen
       const text = new TextDecoder('utf-8').decode(value)
       const texts = handleChatData(text)
       for (let i = 0; i < texts.length; i++) {
@@ -178,7 +178,7 @@ ${JSON.stringify(response, null, 4)}
 
   const [fetchController, setFetchController] = useState<AbortController | null>(null)
 
-  // 对话
+  // dialogue
   async function sendChatCompletions(vaule: string) {
     if (!token) {
       setLoginModal(true)
@@ -245,8 +245,8 @@ ${JSON.stringify(response, null, 4)}
               <span className={styles.menuItem_name}>{item.name}</span>
               <div className={styles.menuItem_options}>
                 <Popconfirm
-                  title="删除会话"
-                  description="是否确定删除会话？"
+                  title="Delete session"
+                  description="Are you sure you delete the session?"
                   onConfirm={() => {
                     delChat(item.id)
                   }}
@@ -271,7 +271,7 @@ ${JSON.stringify(response, null, 4)}
                 style={{ width: '100%' }}
                 defaultValue={config.model}
                 value={config.model}
-                options={models.map((m) => ({ ...m, label: 'AI模型: ' + m.label }))}
+                options={models.map((m) => ({ ...m, label: 'AI model:' + m.label }))}
                 onChange={(e) => {
                   changeConfig({
                     ...config,
@@ -285,7 +285,7 @@ ${JSON.stringify(response, null, 4)}
                   setRoleConfigModal({ open: true })
                 }}
               >
-                角色预设
+                Character preset
               </Button>
               <Button
                 block
@@ -297,22 +297,22 @@ ${JSON.stringify(response, null, 4)}
                   // setChatConfigModal({ open: true })
                 }}
               >
-                系统配置
+                System Configuration
               </Button>
               <Popconfirm
-                title="删除全部对话"
-                description="您确定删除全部会话对吗? "
+                title="Delete all dialogue"
+                description="Are you sure you delete all the session, right?"
                 onConfirm={() => {
                   clearChats()
                 }}
                 onCancel={() => {
-                  // ==== 无操作 ====
+                  // ==== No operation ====
                 }}
                 okText="Yes"
                 cancelText="No"
               >
                 <Button block danger type="dashed" ghost>
-                  清除所有对话
+                  Clear all conversations
                 </Button>
               </Popconfirm>
             </Space>
@@ -371,9 +371,9 @@ ${JSON.stringify(response, null, 4)}
         </div>
       </Layout>
 
-      {/* AI角色预设 */}
+      {/* AI character preset */}
       <Modal
-        title="AI角色预设"
+        title="AI character preset"
         open={roleConfigModal.open}
         footer={null}
         destroyOnClose
@@ -388,12 +388,12 @@ ${JSON.stringify(response, null, 4)}
           items={[
             {
               key: 'roleLocal',
-              label: '本地数据',
+              label: 'Local data',
               children: <RoleLocal />
             },
             {
               key: 'roleNetwork',
-              label: '网络数据',
+              label: 'Network data',
               children: <RoleNetwork />
             }
           ]}
