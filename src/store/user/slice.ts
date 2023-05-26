@@ -3,17 +3,17 @@ import { createJSONStorage, persist } from 'zustand/middleware'
 import { ResponseLoginData, UserInfo } from '@/types'
 
 export interface userState {
-  // 登录弹窗开关
+  // Log in the pop -up switch
   loginModal: boolean
-  // 用户信息
+  // User Info
   user_info: UserInfo | undefined
-  // 登陆Token
+  // Log in token
   token: string | undefined
-  // 修改登录弹窗
+  // Modify login pop -up window
   setLoginModal: (value: boolean) => void
-  // 登陆
+  // Log in
   login: (data: ResponseLoginData) => void
-  // 退出
+  // quit
   logout: () => void
 }
 
