@@ -41,16 +41,16 @@ function PaymentPage() {
       width: 180
     },
     {
-      title: '渠道名称',
+      title: 'Channel name',
       dataIndex: 'name'
     },
     {
-      title: '渠道代码',
+      title: 'Channel code',
       dataIndex: 'channel',
       render: (_, data) => <Tag>{data.channel}</Tag>
     },
     {
-      title: '可用通道',
+      title: 'Available channel',
       dataIndex: 'types',
       render: (_, data) => {
         const typesDom = data.types.split(',').map((type) => {
@@ -60,22 +60,22 @@ function PaymentPage() {
       }
     },
     {
-      title: '状态值',
+      title: 'State value',
       dataIndex: 'status',
       render: (_, data) => (
-        <Tag color={data.status ? 'green' : 'red'}>{data.status ? '上线' : '下线'}</Tag>
+        <Tag color={data.status ? 'green' : 'red'}>{data.status ? 'online' : 'Go down'}</Tag>
       )
     },
     {
-      title: '创建时间',
+      title: 'Creation time',
       dataIndex: 'create_time'
     },
     {
-      title: '更新时间',
+      title: 'Update time',
       dataIndex: 'update_time'
     },
     {
-      title: '操作',
+      title: 'operate',
       width: 160,
       valueType: 'option',
       fixed: 'right',
@@ -103,7 +103,7 @@ function PaymentPage() {
             })
           }}
         >
-          编辑
+          edit
         </Button>,
         <Button
           key="del"
@@ -114,12 +114,12 @@ function PaymentPage() {
               id: data.id
             }).then((res) => {
               if (res.code) return
-              message.success('删除成功')
+              message.success('successfully deleted')
               tableActionRef.current?.reload()
             })
           }}
         >
-          删除
+          delete
         </Button>
       ]
     }
@@ -128,24 +128,24 @@ function PaymentPage() {
   const payKeyColumns: { [key: string]: Array<ProFormColumnsType> } = {
     alipay: [
       {
-        title: '支付宝当面付配置',
+        title: 'Alipay in person to pay configuration',
         valueType: 'group',
         columns: [
           {
-            title: '应用ID appId',
+            title: 'applicationID appId',
             dataIndex: 'appId',
             width: 'lg',
             formItemProps: {
               rules: [
                 {
                   required: true,
-                  message: '此项为必填项'
+                  message: 'This is required'
                 }
               ]
             }
           },
           {
-            title: '加密类型 keyType',
+            title: 'Encryption keyType',
             dataIndex: 'keyType',
             valueType: 'select',
             width: 's',
@@ -163,7 +163,7 @@ function PaymentPage() {
               rules: [
                 {
                   required: true,
-                  message: '此项为必填项'
+                  message: 'This is required'
                 }
               ]
             }
@@ -171,7 +171,7 @@ function PaymentPage() {
         ]
       },
       {
-        title: '应用私钥 privateKey',
+        title: 'Application private key privateKey',
         dataIndex: 'privateKey',
         valueType: 'textarea',
         fieldProps: {
@@ -184,13 +184,13 @@ function PaymentPage() {
           rules: [
             {
               required: true,
-              message: '此项为必填项'
+              message: 'This is required'
             }
           ]
         }
       },
       {
-        title: '支付宝公钥 alipayPublicKey',
+        title: 'Alipay key alipayPublicKey',
         dataIndex: 'alipayPublicKey',
         valueType: 'textarea',
         fieldProps: {
@@ -203,7 +203,7 @@ function PaymentPage() {
           rules: [
             {
               required: true,
-              message: '此项为必填项'
+              message: 'This is required'
             }
           ]
         }
@@ -211,50 +211,50 @@ function PaymentPage() {
     ],
     yipay: [
       {
-        title: '易支付配置',
+        title: 'Easy payment configuration',
         valueType: 'group',
         columns: [
           {
-            title: '商户ID',
+            title: 'MerchantID',
             dataIndex: 'pid',
             formItemProps: {
               rules: [
                 {
                   required: true,
-                  message: '此项为必填项'
+                  message: 'This is required'
                 }
               ]
             },
             width: 'md'
           },
           {
-            title: '商户密钥',
+            title: 'Merchant key',
             dataIndex: 'key',
             formItemProps: {
               rules: [
                 {
                   required: true,
-                  message: '此项为必填项'
+                  message: 'This is required'
                 }
               ]
             },
             width: 'md'
           },
           {
-            title: '接口地址',
+            title: 'interface address',
             dataIndex: 'api',
             width: 'lg',
             formItemProps: {
               rules: [
                 {
                   required: true,
-                  message: '此项为必填项'
+                  message: 'This is required'
                 }
               ]
             }
           },
           {
-            title: '跳转通知地址 return_url',
+            title: 'Jump notification address return_url',
             dataIndex: 'return_url',
             width: 'sm'
           }
@@ -304,7 +304,7 @@ function PaymentPage() {
           x: 1400
         }}
         request={async (params, sorter, filter) => {
-          // 表单搜索项会从 params 传入，传递给后端接口。
+          // Form search items will be passed in from Params and passed to the rear port interface.
           const res = await getAdminPayment({
             page: params.current || 1,
             page_size: params.pageSize || 10
@@ -330,7 +330,7 @@ function PaymentPage() {
                 })
               }}
             >
-              新增支付渠道
+              New payment channel
             </Button>
           ]
         }}
@@ -340,7 +340,7 @@ function PaymentPage() {
       />
 
       <ModalForm<MIXInfo>
-        title="支付渠道"
+        title="Payment channel"
         open={edidInfoModal.open}
         form={form}
         initialValues={{
@@ -368,43 +368,43 @@ function PaymentPage() {
               id: edidInfoModal.info?.id
             } as PaymentInfo)
             if (res.code) {
-              message.error('编辑失败')
+              message.error('Edit failure')
               return false
             }
             tableActionRef.current?.reload?.()
           } else {
             const res = await addAdminPayment(data as PaymentInfo)
             if (res.code) {
-              message.error('新增失败')
+              message.error('New failure')
               return false
             }
             tableActionRef.current?.reloadAndRest?.()
-            message.success('提交成功')
+            message.success('Submitted successfully')
           }
           return true
         }}
         size="large"
         modalProps={{
-          cancelText: '取消',
-          okText: '提交'
+          cancelText: 'Cancel',
+          okText: 'submit'
         }}
       >
         <ProFormText
           name="name"
-          label="渠道名称"
-          rules={[{ required: true, message: '请输入渠道名称' }]}
+          label="Channel name"
+          rules={[{ required: true, message: 'Please enter the channel name' }]}
         />
         <ProFormGroup>
           <ProFormCheckbox.Group
             name="types"
-            label="可用通道"
+            label="Available channel"
             options={[
               {
-                label: '支付宝',
+                label: 'Alipay',
                 value: 'alipay'
               },
               {
-                label: '微信',
+                label: 'WeChat',
                 value: 'wxpay'
               },
               {
@@ -412,38 +412,38 @@ function PaymentPage() {
                 value: 'qqpay'
               }
             ]}
-            rules={[{ required: true, message: '请选择可用通道' }]}
+            rules={[{ required: true, message: 'Please select available channels' }]}
             tooltip="用于微信支付和支付支付的选择"
           />
           <ProFormSegmented
             name="status"
-            label="状态"
+            label="state"
             request={async () => [
               {
-                label: '上线',
+                label: 'online',
                 value: 1
               },
               {
-                label: '下线',
+                label: 'Go down',
                 value: 0
               }
             ]}
-            rules={[{ required: true, message: '请选择状态' }]}
+            rules={[{ required: true, message: 'Please select status' }]}
           />
           <ProFormSegmented
             name="channel"
-            label="支付官方"
+            label="Pay official"
             request={async () => [
               {
-                label: '支付宝-当面付',
+                label: 'Alipay-Pay in person ',
                 value: 'alipay'
               },
               {
-                label: '易支付',
+                label: 'Easy payment',
                 value: 'yipay'
               }
             ]}
-            rules={[{ required: true, message: '请选择状态' }]}
+            rules={[{ required: true, message: 'Please select status' }]}
           />
         </ProFormGroup>
         <ProFormDependency name={['channel']}>
