@@ -5,14 +5,14 @@ function Page404 (){
         <div className={styles.page404}>
             <img className={styles.page404_icon} src="https://files.catbox.moe/l2963j.png" alt="" srcSet="" />
             <div className={styles.page404_text}>
-                <h3>抱歉，您访问的页面不存在!</h3>
-                <p>请确认链接地址是否正确后重新尝试</p>
+                <h3>Sorry, the page you visit does not exist!</h3>
+                <p>Please confirm whether the link address is correct and try again</p>
             </div>
             <div className={styles.page404_button} onClick={()=>{
                 location.href = '/'
             }}
             >
-                回到首页
+                back to the homepage
             </div>
         </div>
     )
