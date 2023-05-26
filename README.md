@@ -7,7 +7,7 @@ English / [Simplified Chinese](https://github.com/79E/ChatGpt-Web/blob/master/RE
 
 A commercially-viable ChatGpt web application built with React.
 
-可部署商业化的 ChatGpt 网页应用。
+Can be deployed to commercialize the ChatGPT web application.
 
 [Issues](https://github.com/79E/ChatGPT-Web/issues) / [Buy Me a Coffee](https://www.buymeacoffee.com/beggar) / [Sponsor me](https://files.catbox.moe/o0znrg.JPG)
 
