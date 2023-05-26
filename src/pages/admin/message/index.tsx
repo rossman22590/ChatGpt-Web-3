@@ -15,40 +15,40 @@ function MessagePage() {
             width: 180,
         },
         {
-            title: '用户ID',
+            title: 'userID',
             width: 180,
             dataIndex: 'user_id',
         },
         {
-            title: '内容',
+            title: 'content',
             dataIndex: 'content',
         },
         {
-            title: '角色',
+            title: 'Role',
             dataIndex: 'role',
             render: (_, data)=><Tag>{data.role}</Tag>
         },
         {
-            title: '模型',
+            title: 'Model',
             dataIndex: 'model',
             render: (_, data)=><Tag>{data.model}</Tag>
         },
         {
-            title: '会话ID',
+            title: 'Session ID',
             dataIndex: 'parent_message_id',
             render: (_, data)=><Tag>{data.role}</Tag>
         },
         {
-            title: '状态值',
+            title: 'State value',
             dataIndex: 'status',
             render: (_, data) => <Tag color={data.status ? 'green' : 'red'}>{data.status ? '正常' : '异常'}</Tag>
         },
         {
-            title: '创建时间',
+            title: 'Creation time',
             dataIndex: 'create_time',
         },
         {
-            title: '更新时间',
+            title: 'Update time',
             dataIndex: 'update_time',
         },
     ];
@@ -62,7 +62,7 @@ function MessagePage() {
                     x: 1200
                 }}
                 request={async (params, sorter, filter) => {
-                    // 表单搜索项会从 params 传入，传递给后端接口。
+                    // Form search items will be passed in from Params and passed to the rear port interface.
                     const res = await getAdminMessages({
                         page: params.current || 1,
                         page_size: params.pageSize || 10,
