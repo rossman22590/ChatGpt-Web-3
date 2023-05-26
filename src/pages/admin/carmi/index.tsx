@@ -30,11 +30,11 @@ function CarmiPage() {
       width: 180
     },
     {
-      title: '卡密',
+      title: 'Dense',
       dataIndex: 'key'
     },
     {
-      title: '奖励',
+      title: 'award',
       dataIndex: 'value',
       render: (_, data) => {
         return (
@@ -46,23 +46,23 @@ function CarmiPage() {
       }
     },
     {
-      title: '状态',
+      title: 'state',
       dataIndex: 'status',
       render: (_, data) => {
         const color = data.status === 1 ? 'red' : data.status === 2 ? 'orange' : 'green'
         return (
           <Tag color={color}>
-            {data.status === 1 ? '已使用' : data.status === 2 ? '已过期' : '未使用'}
+            {data.status === 1 ? 'Used' : data.status === 2 ? 'expired' : 'Unused'}
           </Tag>
         )
       }
     },
     {
-      title: '有效期',
+      title: 'Validity period',
       dataIndex: 'end_time'
     },
     {
-      title: '使用者',
+      title: 'user',
       dataIndex: 'user_id'
     },
     {
@@ -70,15 +70,15 @@ function CarmiPage() {
       dataIndex: 'ip'
     },
     {
-      title: '创建时间',
+      title: 'Creation time',
       dataIndex: 'create_time'
     },
     {
-      title: '更新时间',
+      title: 'Update time',
       dataIndex: 'update_time'
     },
     {
-      title: '操作',
+      title: 'operate',
       width: 100,
       valueType: 'option',
       fixed: 'right',
@@ -92,12 +92,12 @@ function CarmiPage() {
               id: data.id
             }).then((res) => {
               if (res.code) return
-              message.success('删除成功')
+              message.success('successfully deleted')
               tableActionRef.current?.reload()
             })
           }}
         >
-          删除
+          delete
         </Button>
       ]
     }
@@ -132,11 +132,11 @@ function CarmiPage() {
               size="small"
               onClick={() => {
                 getAdminCarmiCheck().then(()=>{
-                  message.success('提交成功,请稍后查看')
+                  message.success('The submission is successful, please check later')
                 })
               }}
             >
-              异步检查卡密
+              Asynchronous inspection Katmi
             </Button>,
             <Button
               key="produce"
@@ -146,7 +146,7 @@ function CarmiPage() {
                 setGenerateModal((g) => ({ ...g, open: true }))
               }}
             >
-              批量生成
+              Batch generation
             </Button>
           ]
         }}
@@ -174,7 +174,7 @@ function CarmiPage() {
         <Space direction="vertical" style={{ width: '100%' }}>
           <Space size="large" wrap>
             <div className={styles.formCard}>
-              <p className={styles.formCard_title}>奖励类型</p>
+              <p className={styles.formCard_title}>Reward type</p>
               <Radio.Group
                 size="large"
                 onChange={(e) => {
@@ -183,12 +183,12 @@ function CarmiPage() {
                 defaultValue={generateModal.type}
                 value={generateModal.type}
               >
-                <Radio.Button value="integral">积分</Radio.Button>
-                <Radio.Button value="day">时长（天）</Radio.Button>
+                <Radio.Button value="integral">integral</Radio.Button>
+                <Radio.Button value="day">Time (God)</Radio.Button>
               </Radio.Group>
             </div>
             <div className={styles.formCard}>
-              <p className={styles.formCard_title}>奖励数量</p>
+              <p className={styles.formCard_title}>Quantity</p>
               <InputNumber
                 size="large"
                 min={1}
@@ -202,7 +202,7 @@ function CarmiPage() {
               />
             </div>
             <div className={styles.formCard}>
-              <p className={styles.formCard_title}>有效期截止日期</p>
+              <p className={styles.formCard_title}>Validity deadline</p>
               <DatePicker
                 size="large"
                 format="YYYY-MM-DD"
@@ -223,7 +223,7 @@ function CarmiPage() {
             </div>
           </Space>
           <div className={styles.formCard}>
-            <p className={styles.formCard_title}>生成数量</p>
+            <p className={styles.formCard_title}>Quantity</p>
             <InputNumber
               style={{
                 width: '100%'
@@ -282,7 +282,7 @@ function CarmiPage() {
             block
             size="large"
           >
-            立即生成
+            Generate immediately
           </Button>
         </Space>
       </Modal>
