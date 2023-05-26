@@ -26,11 +26,11 @@ function GoodsList(props: { list: Array<ProductInfo>; onChange: (item: ProductIn
               setSelectItem(item)
             }}
           >
-            {item.integral ? <h3>{item.integral}积分</h3> : <h3>会员{item.day}天</h3>}
+            {item.integral ? <h3>{item.integral}integral</h3> : <h3>member{item.day}sky</h3>}
             <div className={styles.goodsList_item_button}>
               <p>
                 {(item.price / 100).toFixed(2)}
-                <span>元</span>
+                <span>Yuan</span>
               </p>
             </div>
             <span className={styles.goodsList_item_tag}>{item.badge}</span>
