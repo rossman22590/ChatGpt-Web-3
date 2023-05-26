@@ -43,7 +43,7 @@ const modelsAll = [
 		value: 'code-davinci-002'
 	},
 	{
-		label: 'DALL·E绘画',
+		label: 'DALL·E Painting',
 		value: 'dall-e'
 	}
 ]
