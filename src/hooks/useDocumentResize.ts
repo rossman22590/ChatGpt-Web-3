@@ -16,10 +16,10 @@ function useDocumentResize(target: HTMLElement = document.body) {
       }
     };
 
-    // 添加resize事件监听器
+    // Add a Resize event monitor
     window.addEventListener('resize', handleResize);
 
-    // 获取初始宽度
+    // Get the initial width
     if (target) {
       setRect({
         width: target.offsetWidth,
@@ -27,7 +27,7 @@ function useDocumentResize(target: HTMLElement = document.body) {
       });
     }
 
-    // 在组件卸载时移除监听器
+    // Remove the monitor when the component is uninstalled
     return () => {
       window.removeEventListener('resize', handleResize);
     };
