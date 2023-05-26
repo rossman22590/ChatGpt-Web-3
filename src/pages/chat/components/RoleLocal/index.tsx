@@ -41,7 +41,7 @@ function RoleLocal() {
           <DeleteOutlined
             onClick={() => {
               delPrompt(info)
-              message.success('删除成功 👌')
+              message.success('successfully deleted 👌')
             }}
           />
           <FormOutlined
@@ -77,7 +77,7 @@ function RoleLocal() {
 
   const exportPromptTemplate = (data: Array<any>) => {
     if (data.length <= 0) {
-      message.warning('暂无数据！🚗')
+      message.warning('No data!🚗')
       return
     }
     const jsonDataStr = JSON.stringify(data)
@@ -135,10 +135,10 @@ function RoleLocal() {
                 })
               }}
             >
-              添加
+              Add to
             </Button>
             <Input
-              placeholder="搜索关键词"
+              placeholder="search keyword"
               onChange={(e) => {
                 setPage(1)
                 setKeyword(e.target.value)
@@ -149,7 +149,7 @@ function RoleLocal() {
         {list.map((item) => {
           return promptCard({ ...item })
         })}
-        {list.length <= 0 && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无数据" />}
+        {list.length <= 0 && <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No data" />}
         <div className={styles.roleLocal}>
           <Pagination
             showSizeChanger={false}
@@ -166,7 +166,7 @@ function RoleLocal() {
       </Space>
 
       <ModalForm<PromptInfo>
-        title="角色信息"
+        title="Role information"
         open={promptInfoModal.open}
         form={promptInfoform}
         onOpenChange={(visible) => {
@@ -182,9 +182,9 @@ function RoleLocal() {
             return false
           }
           if (promptInfoModal.oldKey) {
-            // 修改
+            // Revise
             editPrompt(promptInfoModal.oldKey, { ...values })
-            message.success('修改成功 👌')
+            message.success('Successfully modified 👌')
           } else {
             addPrompts([
               {
@@ -192,34 +192,34 @@ function RoleLocal() {
                 value: values.value
               }
             ])
-            message.success('新增成功 👌')
+            message.success('added successfully 👌')
           }
           return true
         }}
         width={500}
         modalProps={{
-          cancelText: '取消',
-          okText: '提交',
+          cancelText: 'Cancel',
+          okText: 'submit',
           maskClosable: false
         }}
       >
         <ProFormText
           width="lg"
           name="key"
-          label="标题"
-          rules={[{ required: true, message: '请输入标题!' }]}
+          label="title"
+          rules={[{ required: true, message: 'Please enter the title!' }]}
         />
         <ProFormTextArea
           width="lg"
           name="value"
-          label="内容"
-          rules={[{ required: true, message: '请输入内容!' }]}
+          label="content"
+          rules={[{ required: true, message: 'Please enter the content!' }]}
         />
       </ModalForm>
 
-      {/* 导入数据 */}
+      {/* Import Data */}
       <ModalForm
-        title="批量新增角色信息"
+        title="Batch new role information"
         open={addPromptJson}
         onOpenChange={(visible) => {
           setAddPromptJson(visible)
@@ -239,22 +239,22 @@ function RoleLocal() {
                 })
                 addPrompts([...newJsonData])
               } else {
-                throw Error('数据格式错误1')
+                throw Error('Data format error 1')
               }
             } else {
-              throw Error('数据格式错误2')
+              throw Error('Data format error 2')
             }
           } catch (error) {
             console.log(error)
-            message.error('数据格式错误 🙅')
+            message.error('Data format error 🙅')
             return false
           }
           return true
         }}
         width={500}
         modalProps={{
-          cancelText: '取消',
-          okText: '提交',
+          cancelText: 'Cancel',
+          okText: 'submit',
           maskClosable: false,
           destroyOnClose: true
         }}
@@ -262,9 +262,9 @@ function RoleLocal() {
         <ProFormTextArea
           width="lg"
           name="value"
-          label="角色数据"
-          rules={[{ required: true, message: '请输入内容!' }]}
-          placeholder="请输入要导入的JSON 格式为: [{key:'标题',value:'内容'}]"
+          label="Role data"
+          rules={[{ required: true, message: 'Please enter the content!' }]}
+          placeholder="Please enter the json format to be imported to: [{key: 'title', value: 'content'}]"
           fieldProps={{
             autoSize: {
               minRows: 4,
@@ -273,11 +273,11 @@ function RoleLocal() {
           }}
         />
         <span>
-          请先在{' '}
+          Please first{' '}
           <a href="https://www.json.cn/" target="_blank" rel="noreferrer">
             https://www.json.cn/
           </a>{' '}
-          验证正确后在进行导入。
+          Export after verification correctly.
         </span>
       </ModalForm>
     </div>
