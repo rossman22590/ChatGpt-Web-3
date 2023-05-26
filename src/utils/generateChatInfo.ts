@@ -6,7 +6,7 @@ export function generateChatInfo (): ChatsInfo  {
     return {
         path: uuid,
         id: uuid,
-        name: '新的对话',
+        name: 'New dialogue',
         data: []
     }
 }
