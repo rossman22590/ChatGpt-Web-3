@@ -9,17 +9,17 @@ async function fetchProduct() {
 		const types: {[key: string]: any} = {
 			wxpay: {
 				icon: 'https://files.catbox.moe/b1joiq.png',
-				title: '微信支付',
+				title: 'WeChat payment',
 				key: 'wxpay'
 			},
 			alipay: {
 				icon: 'https://files.catbox.moe/a8x6il.png',
-				title: '支付宝',
+				title: 'Alipay',
 				key: 'alipay'
 			},
 			qqpay: {
 				icon: 'https://files.catbox.moe/rimuzz.png',
-				title: 'QQ支付',
+				title: 'QQ payment',
 				key: 'qqpay'
 			},
 		}
