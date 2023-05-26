@@ -13,22 +13,22 @@ import request from '.'
 import { formatTime } from '@/utils'
 import { TableData } from '@/types/admin'
 
-// 获取验证码
+// get verification code
 export function getCode(params: { source: string }) {
   return request.get('/api/send_sms', params)
 }
 
-// 登陆
+// Log in
 export function postLogin(params: RequestLoginParams) {
   return request.post<ResponseLoginData>('/api/login', params)
 }
 
-// 获取用户信息
+// Get user information
 export function getUserInfo() {
   return request.get<UserInfo>('/api/user/info')
 }
 
-// 请求对话
+// Request dialogue
 export function postChatCompletions(
   params: RequestChatOptions,
   config?: {
@@ -39,7 +39,7 @@ export function postChatCompletions(
   return request.postStreams<Response>('/api/chat/completions', params, config)
 }
 
-// 请求绘画
+// Request painting
 export function postImagesGenerations(
   params: RequestImagesGenerations,
   headers?: { [key: string]: any },
@@ -53,7 +53,7 @@ export function postImagesGenerations(
   )
 }
 
-// 获取商品列表
+// List of products
 export function getProduct() {
   return request.get< {
 	products: Array<ProductInfo>,
@@ -61,12 +61,12 @@ export function getProduct() {
   }>('/api/product')
 }
 
-// 获取用户消费记录
+// Get user consumption record
 export function getUserTurnover(params: { page: number; pageSize: number }) {
   return request.get<{ count: number; rows: Array<TurnoverInfo> }>('/api/turnover', params)
 }
 
-// 提交订单
+// Submit Order
 export function postPayPrecreate(params: RequesPrepay) {
   return request.post<{
     order_id: string
@@ -76,12 +76,12 @@ export function postPayPrecreate(params: RequesPrepay) {
   }>('/api/pay/precreate', params)
 }
 
-// 卡密充值
+// Densely recharge
 export function postUseCarmi(params: { carmi: string }) {
   return request.post('/api/use_carmi', params)
 }
 
-// 签到
+// Sign in
 export function postSignin() {
   return request.post('/api/signin')
 }
