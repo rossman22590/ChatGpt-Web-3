@@ -3,18 +3,18 @@ import { createJSONStorage, persist } from 'zustand/middleware';
 import { ChatGptConfig } from '@/types';
 
 export interface ConfigState {
-  // 配置信息
+  // Configuration information
   config: ChatGptConfig;
-  // 模型
+  // Model
   models: Array<{
     label: string;
     value: string;
   }>;
-  // 配置弹窗开关
+  // Configure pop -up switch
   configModal: boolean;
-  // 修改配置弹窗
+  // Modify the configuration pop -up window
   setConfigModal: (value: boolean) => void;
-  // 修改配置
+  // Change setting
   changeConfig: (config: ChatGptConfig) => void;
 }
 
