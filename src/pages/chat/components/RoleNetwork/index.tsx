@@ -16,13 +16,13 @@ function RoleNetwork() {
   const [downloadUrl, setDownloadUrl] = useState('')
   const downloadJson = async (url: string) => {
     if (!is.isValidUrl(url)) {
-      message.error('请输入正确的URL 🙅')
+      message.error('Please enter the correct URL 🙅')
       return
     }
     const response = await fetch(url)
     const jsonData = await response.json()
     if (!Array.isArray(jsonData) || jsonData.length <= 0) {
-      message.error('数据格式不正确')
+      message.error('Incorrect data format')
       return
     }
     if ('key' in jsonData[0] && 'value' in jsonData[0]) {
@@ -36,19 +36,19 @@ function RoleNetwork() {
       })
       addPrompts([...newJsonData])
     } else {
-      message.error('数据格式不正确 😂')
+      message.error('Incorrect data format 😂')
       return
     }
-    message.success('添加成功 ❤️')
+    message.success('Added successfully ❤️')
     setDownloadUrl('')
   }
 
   return (
     <div className={styles.roleNetwork}>
       <Input.Search
-        placeholder="请输入JSON数据格式链接"
+        placeholder="Please enter the JSON data format link"
         allowClear
-        enterButton="下载"
+        enterButton="download"
         size="large"
         value={downloadUrl}
         onChange={(e) => {
