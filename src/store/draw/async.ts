@@ -1,7 +1,7 @@
 import { RequestImagesGenerations } from '@/types';
 import configStore from '../config/slice';
 
-// 代理模式
+// Proxy mode
 const proxyImagesGenerations = (
   params: RequestImagesGenerations,
   options?: { [key: string]: any }
