@@ -26,17 +26,17 @@ export interface ChatGptConfig {
   // api: string
   // api-key
   // api_key?: string
-  // 模型
+  // Model
   model: string
-  // 输出随机性 0 - 2
+  // Output random 0 - 2
   temperature?: number
-  // 惩罚性质 -2 - 2
+  // Punishment -2 - 2
   presence_penalty?: number
-  // 惩罚频率 -2 - 2
+  // Punishment frequency -2 - 2
   frequency_penalty?: number
-  // 携带历史消息数
+  // Bring historical messages
   // limit_message?: number
-  // 单次回复限制
+  // Single reply restriction
   max_tokens?: number
 }
 
@@ -51,20 +51,20 @@ export interface RequestChatOptions {
   parentMessageId?: string
 }
 
-// 请求Openai 或者 其他代理
+// Request Openai or other agents
 export interface RequestOpenChatOptions {
   model: string
   messages: Array<{
     role: 'assistant' | 'user' | string
     content: string
   }>
-  // 输出随机性 0 - 2
+  // Output random 0 - 2
   temperature?: number
-  // 惩罚性质 -2 - 2
+  // Punishment -2 - 2
   presence_penalty?: number
-  // 惩罚频率 -2 - 2
+  // Punishment frequency -2 - 2
   frequency_penalty?: number
-  // 单次回复限制
+  // Single reply restriction
   max_tokens?: number
   stream?: boolean
 }
@@ -84,7 +84,7 @@ export interface ChatResultInfo {
   segment: string
 }
 
-// 对话记录
+// Dialogue record
 export interface ChatGpt {
   id: string | number
   text: string
@@ -107,7 +107,7 @@ export interface ImagesInfo extends RequestImagesGenerations {
   url: string
 }
 
-// 三方订阅 信息
+// Three -party subscription information
 export interface SubscriptionInfo {
   hard_limit_usd: number
   has_payment_method: boolean
