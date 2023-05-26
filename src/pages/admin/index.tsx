@@ -30,7 +30,7 @@ function AdminPage() {
   return (
     <div className={styles.admin}>
       <ProLayout
-        title="后台管理系统"
+        title="Background management system"
         logo={import.meta.env.VITE_APP_LOGO}
         layout="mix"
         splitMenus={false}
@@ -67,7 +67,7 @@ function AdminPage() {
         avatarProps={{
           src: user_info?.avatar,
           size: 'small',
-          title: '超级管理员',
+          title: 'Super administrator',
           render: (props: any, dom: React.ReactNode) => {
             return (
               <Dropdown
@@ -76,7 +76,7 @@ function AdminPage() {
                     {
                       key: 'logout',
                       icon: <LogoutOutlined />,
-                      label: '退出登录',
+                      label: 'sign out',
                       onClick: () => {
                         logout()
                         navigate('/login')
