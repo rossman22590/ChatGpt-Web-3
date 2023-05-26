@@ -41,7 +41,7 @@ function AllInput(props: Props) {
     }
   }, [prompt])
 
-  // 保存聊天记录到图片
+  // Save the chat record to the picture
   async function downloadChatRecords() {
     try {
       setDownloadModal((d) => ({ ...d, loading: true }))
@@ -62,7 +62,7 @@ function AllInput(props: Props) {
       setDownloadModal(() => ({ open: false, loading: false }))
       Promise.resolve()
     } catch (error: any) {
-      message.error('下载聊天记录失败')
+      message.error('Download the chat history failed')
       Promise.reject()
     } finally {
       setDownloadModal((d) => ({ ...d, loading: false }))
@@ -97,10 +97,10 @@ function AllInput(props: Props) {
           maxWidth: 800
         }}
         onSelect={(value) => {
-          // 这里选择后直接发送
+          // Send it directly here
           //   props?.onSend?.(value)
-          // 并且将输入框清空
-          // 修改为选中放置在输入框内
+          // And clear the input box
+          // Modified to select it in the input box
           setPrompt(value)
         }}
       >
@@ -108,20 +108,20 @@ function AllInput(props: Props) {
           value={prompt}
           // showCount
           size="large"
-          placeholder="问点什么吧..."
+          placeholder="Ask what ..."
           // (Shift + Enter = 换行)
           autoSize={{
             maxRows: 4
           }}
           onPressEnter={(e) => {
             if (e.key === 'Enter' && e.keyCode === 13 && e.shiftKey) {
-              // === 无操作 ===
+              // === No operation ===
             } else if (e.key === 'Enter' && e.keyCode === 13) {
               if (!props.disabled) {
                 props?.onSend?.(prompt)
                 setPrompt('')
               }
-              e.preventDefault() //禁止回车的默认换行
+              e.preventDefault() //The default change of the car is prohibited
             }
           }}
           onChange={(e) => {
@@ -154,12 +154,12 @@ function AllInput(props: Props) {
             setPrompt('')
           }}
         >
-          发送
+          send
         </Button>
       )}
 
       <Modal
-        title="保存当前对话记录"
+        title="Save the current dialogue record"
         open={downloadModal.open}
         onOk={() => {
           downloadChatRecords()
@@ -169,7 +169,7 @@ function AllInput(props: Props) {
           setDownloadModal({ open: false, loading: false })
         }}
       >
-        <p>是否将当前对话记录保存为图片？</p>
+        <p>Do you save the current dialogue record as a picture?</p>
       </Modal>
     </div>
   )
