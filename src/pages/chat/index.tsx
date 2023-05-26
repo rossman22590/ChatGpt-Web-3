@@ -77,7 +77,7 @@ function ChatPage() {
           addChat()
         }}
       >
-        新建对话
+        New dialogue
       </Button>
     )
   }
