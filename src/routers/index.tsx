@@ -139,7 +139,7 @@ export const adminRouter: RouteOptions[] = [
         element: <AdminTurnoverPage />,
         index: false,
         configure: {
-          title: '消费记录',
+          title: 'Expenses record',
           verifToken: true,
           role: ['administrator']
         }
@@ -150,7 +150,7 @@ export const adminRouter: RouteOptions[] = [
         element: <AdminSigninPage />,
         index: false,
         configure: {
-          title: '签到记录',
+          title: 'Sign in',
           verifToken: true,
           role: ['administrator']
         }
@@ -161,7 +161,7 @@ export const adminRouter: RouteOptions[] = [
         element: <AdminMessagePage />,
         index: false,
         configure: {
-          title: '对话记录',
+          title: 'Dialogue record',
           verifToken: true,
           role: ['administrator']
         }
@@ -172,7 +172,7 @@ export const adminRouter: RouteOptions[] = [
         element: <AdminProductPage />,
         index: false,
         configure: {
-          title: '商品列表',
+          title: 'Product list ',
           verifToken: true,
           role: ['administrator']
         }
@@ -183,7 +183,7 @@ export const adminRouter: RouteOptions[] = [
         element: <AdminPaymentPage />,
         index: false,
         configure: {
-          title: '支付配置',
+          title: 'Payment configuration',
           verifToken: true,
           role: ['administrator']
         }
@@ -194,7 +194,7 @@ export const adminRouter: RouteOptions[] = [
         element: <AdminTokenPage />,
         index: false,
         configure: {
-          title: 'Toekn管理',
+          title: 'Token management',
           verifToken: true,
           role: ['administrator']
         }
@@ -205,7 +205,7 @@ export const adminRouter: RouteOptions[] = [
         element: <AdminOrderPage />,
         index: false,
         configure: {
-          title: '订单管理',
+          title: 'Order management',
           verifToken: true,
           role: ['administrator']
         }
@@ -216,7 +216,7 @@ export const adminRouter: RouteOptions[] = [
         element: <AdminConfigPage />,
         index: false,
         configure: {
-          title: '系统配置',
+          title: 'System Configuration',
           verifToken: true,
           role: ['administrator']
         }
