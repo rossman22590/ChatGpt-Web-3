@@ -24,29 +24,29 @@ function TurnoverPage() {
             width: 180,
         },
         {
-            title: '用户ID',
+            title: 'userID',
             width: 180,
             dataIndex: 'user_id',
         },
         {
-            title: '操作',
+            title: 'operate',
             dataIndex: 'describe',
         },
         {
-            title: '值',
+            title: 'value',
             dataIndex: 'value',
             render: (_, data) => <a>{data.value}</a>
         },
         {
-            title: '创建时间',
+            title: 'Creation time',
             dataIndex: 'create_time',
         },
         {
-            title: '更新时间',
+            title: 'Update time',
             dataIndex: 'update_time',
         },
         {
-            title: '操作',
+            title: 'operate',
             valueType: 'option',
             fixed: 'right',
             width: 160,
@@ -61,19 +61,19 @@ function TurnoverPage() {
                     })
                 }}
                 >
-                    编辑
+                    edit
                 </Button>,
                 <Button key="del" type="text" danger onClick={() => {
                     delAdminTurnover({
                         id: data.id
                     }).then((res) => {
                         if (res.code) return
-                        message.success('删除成功')
+                        message.success('successfully deleted')
                         tableActionRef.current?.reloadAndRest?.()
                     })
                 }}
                 >
-                    删除
+                    delete
                 </Button>
             ],
         },
@@ -88,7 +88,7 @@ function TurnoverPage() {
                     x: 1200
                 }}
                 request={async (params, sorter, filter) => {
-                    // 表单搜索项会从 params 传入，传递给后端接口。
+                    //Form search items will be passed in from Params and passed to the rear port interface.
                     const res = await getAdminTurnovers({
                         page: params.current || 1,
                         page_size: params.pageSize || 10,
@@ -108,7 +108,7 @@ function TurnoverPage() {
             />
 
             <ModalForm<TurnoverInfo>
-                title="用户消费记录"
+                title="User Consumption Record"
                 open={edidInfoModal.open}
                 form={form}
                 initialValues={{
@@ -131,7 +131,7 @@ function TurnoverPage() {
                         ...values,
                     });
                     if (res.code) {
-                        message.error('编辑失败')
+                        message.error('Edit failure')
                         return false;
                     }
                     tableActionRef.current?.reload?.();
@@ -139,30 +139,30 @@ function TurnoverPage() {
                 }}
                 size="large"
                 modalProps={{
-                    cancelText: '取消',
-                    okText: '提交'
+                    cancelText: 'Cancel',
+                    okText: 'submit'
                 }}
             >
                 <ProFormText
                     width="lg"
                     name="user_id"
-                    label="用户ID"
-                    placeholder="用户ID"
+                    label="User ID "
+                    placeholder="User ID"
                     disabled
                 />
                 <ProFormGroup>
                     <ProFormText
                         width="lg"
                         name="describe"
-                        label="描述"
-                        placeholder="操作描述"
-                        rules={[{ required: true, message: '请输入操作描述！' }]}
+                        label="describe"
+                        placeholder="Description"
+                        rules={[{ required: true, message: 'Please enter the operation description!' }]}
                     />
                     <ProFormText
                         name="value"
-                        label="值"
-                        placeholder="操作对应值！"
-                        rules={[{ required: true, message: '请输入操作相应的值！' }]}
+                        label="value"
+                        placeholder="Operation corresponding value!"
+                        rules={[{ required: true, message: 'Please enter the corresponding value!' }]}
                     />
                 </ProFormGroup>
 
