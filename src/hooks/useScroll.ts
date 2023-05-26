@@ -24,7 +24,7 @@ export function useScroll(scrollElement: ScrollElement): ScrollReturn {
 
   const scrollToBottomIfAtBottom = async () => {
     if (scrollElement) {
-      const threshold = 100 // 阈值，表示滚动条到底部的距离阈值
+      const threshold = 100 // Threshold, indicates the distance threshold at the bottom of the rolling bar
       const distanceToBottom = scrollElement.scrollHeight - scrollElement.scrollTop - scrollElement.clientHeight;
       if (distanceToBottom <= threshold){
         scrollElement.scrollTop = scrollElement.scrollHeight
