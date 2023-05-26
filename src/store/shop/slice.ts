@@ -3,13 +3,13 @@ import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 
 export interface shopState {
-  // pay 支付方式
+  // Pay payment method
   payTypes: Array<PayTypeInfo>
-  // 商品列表
+  // Product list
   goodsList: Array<ProductInfo>
-  // 修改商品列表
+  // Modify the list of products
   changeGoodsList: (list: Array<ProductInfo>) => void
-  // 修改支付方式
+  // Modify the payment method
   changePayTypes: (list: Array<PayTypeInfo>) => void
 }
 
