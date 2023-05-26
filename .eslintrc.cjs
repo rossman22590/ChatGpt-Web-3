@@ -10,8 +10,8 @@ module.exports = {
     'parserOptions': {
         'ecmaVersion': 'latest',
         'sourceType': 'module',
-        'ecmaFeatures': { // 表示你想使用的额外的语言特性
-          'jsx': true // 启用 JSX
+        'ecmaFeatures': { // Indicates the additional language characteristics you want to use
+          'jsx': true // Open up JSX
         }
     },
     'extends':  [
@@ -28,13 +28,13 @@ module.exports = {
       '@typescript-eslint'
     ],
     'rules': {
-      // eslint 的配置
-      'quotes': ['ERROR', 'single'], //单引号
-      'no-console': ['error', { 'allow': ['log'] }],// 允许使用 console.log()
-      'no-confusing-arrow': 0, // 禁止在可能与比较操作符相混淆的地方使用箭头函数
-      // eslint-plugin-react 的配置
+      // eslint Configuration
+      'quotes': ['ERROR', 'single'], //apostrophe
+      'no-console': ['error', { 'allow': ['log'] }],// with permission console.log()
+      'no-confusing-arrow': 0, // Use arrow functions where may be confused with comparative operating symbols
+      // eslint-plugin-react Configuration
       'react/prop-types': 0,
-      // eslint-plugin-react-hooks 的配置
+      // eslint-plugin-react-hooks Configuration
       'react-hooks/rules-of-hooks' : 'error',
       'react-hooks/exhaustive-deps' : 'warn',
       'no-useless-escape': 'warn',
