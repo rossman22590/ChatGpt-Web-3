@@ -1,19 +1,19 @@
 module.exports = {
-    printWidth: 100, // 最大行长规则通常设置为 100 或 120。
-    tabWidth: 2, // 指定每个标签缩进级别的空格数。
-    useTabs: false, // 使用制表符而不是空格缩进行。
-    semi: false, // true（默认）: 在每条语句的末尾添加一个分号。false：仅在可能导致 ASI 失败的行的开头添加分号。
-    singleQuote: true, // 使用单引号而不是双引号
-    quoteProps: 'as-needed', // 引用对象中的属性时，仅在需要时在对象属性周围添加引号。
-    bracketSpacing: true, // 在对象文字中的括号之间打印空格。
-    trailingComma: 'none', // "none":没有尾随逗号。"es5": 在 ES5 中有效的尾随逗号（对象、数组等），TypeScript 中的类型参数中没有尾随逗号。"all"- 尽可能使用尾随逗号。
-    bracketSameLine: false, // 将>多行 HTML（HTML、JSX、Vue、Angular）元素放在最后一行的末尾，而不是单独放在下一行（不适用于自闭合元素）。
-    jsxSingleQuote: false, // 在 JSX 中使用单引号而不是双引号。
-    arrowParens: 'always', // 在唯一的箭头函数参数周围始终包含括号。
-    insertPragma: false, // 插入编译指示
-    requirePragma: false, // 需要编译指示
-    proseWrap: 'never', // 如果散文超过打印宽度，则换行
-    htmlWhitespaceSensitivity: 'strict', // 所有标签周围的空格（或缺少空格）被认为是重要的。
-    endOfLine: 'lf', // 确保在文本文件中仅使用 ( \n)换行，常见于 Linux 和 macOS 以及 git repos 内部。
-    rangeStart: 0, // 格式化文件时，回到包含所选语句的第一行的开头。
+    Printwidth: 100, // The largest president rules are usually set to 100 or 120.
+    Tabwidth: 2, // Specify the number of spaces that shrink into the level of each label.
+    USetabs: False, // Use the symbol instead of space shrinkage.
+    SEMI: FALSE, // True (default): Add a segment number to the end of each statement.FALSE: Add a segment number at the beginning that may cause ASI failure.
+    Singlequote: true, // Use a single quotation instead of dual quotation marks
+    Quoteprops: 'as-needed', // When reference the attributes in the object, add the quotation marks around the object attribute only when needed.
+    BracketSpacing: True, // Print space between brackets in object text.
+    trailingComma: 'None', // "None": No follow -up comma."ES5": Effectively follow the commas (object, array, etc.) in ES5, and the type parameters in TypeScript are not followed."all" -s as much as possible to follow the comma.
+    Bracketsameline: False, // Put multiple lines of HTML (HTML, JSX, Vue, Angular) element at the end of the last line, rather than putting it alone (not suitable for autistic elements).
+    JSXSINGLEQUOTE: FALSE, // Use single quotes instead of dual quotes in JSX.
+    Arrowparens: 'AlwayS', // always contains parentheses around the unique arrow function parameter.
+    Insertpragma: false, // Insert compilation instructions
+    RequirePragma: False, // Need to compile instructions
+    Prosewrap: 'Never', // If the prose exceeds the print width, change the line
+    HTMLWHITESPACESITITITITY: 'Strict', // All the spaces (or lack of spaces) around all tags are considered important.
+    Endofline: 'LF', // Make sure that only (\ n) is used in text files, commonly used in Linux and MacOS and Git Repos.
+    Rangestart: 0, // When formatting files, return to the beginning of the first line containing the selected sentence.
 };
