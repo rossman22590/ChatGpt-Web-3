@@ -15,133 +15,133 @@ import {
 } from '@/types/admin'
 import request from '.'
 
-// 获取卡密列表
+// Get the card secret list
 export function getAdminCarmi(params: Paging) {
   return request.get<TableData<Array<CarmiInfo>>>('/api/admin/carmi', params)
 }
 
-// 检查卡密
+// Check the card
 export function getAdminCarmiCheck() {
   return request.get<TableData<Array<CarmiInfo>>>('/api/admin/carmi/check')
 }
 
-// 删除卡密
+// Delete Card Mi
 export function delAdminCarmi(params: { id: string | number }) {
   return request.del(`/api/admin/carmi/${params.id}`)
 }
 
-// 批量生产卡密
+// Batch production card
 export function addAdminCarmis(params: RequestAddCarmi) {
   return request.post<Array<CarmiInfo>>('/api/admin/carmi', params)
 }
 
-// 用户列表
+// user list
 export function getAdminUsers(params: Paging) {
   return request.get<TableData<Array<UserInfo>>>('/api/admin/user', params)
 }
-// 删除用户
+// delete users
 export function delAdminUsers(params: { id: string | number }) {
   return request.del(`/api/admin/user/${params.id}`)
 }
-// 修改用户
+// Modify the user
 export function putAdminUsers(params: UserInfo) {
   return request.put('/api/admin/user', params)
 }
 
-// 用户消费列表
+// User consumption list
 export function getAdminTurnovers(params: Paging) {
   return request.get<TableData<Array<TurnoverInfo>>>('/api/admin/turnover', params)
 }
-// 删除用户消费记录
+// Delete user consumption records
 export function delAdminTurnover(params: { id: string | number }) {
   return request.del(`/api/admin/turnover/${params.id}`)
 }
-// 修改用户消费记录
+// Modify user consumption records
 export function putAdminTurnover(params: TurnoverInfo) {
   return request.put('/api/admin/turnover', params)
 }
 
-// 用户签到列表
+// User sign -in list
 export function getAdminSignin(params: Paging) {
   return request.get<TableData<Array<SigninInfo>>>('/api/admin/signin', params)
 }
 
-// 用户对话列表
+// User conversation list
 export function getAdminMessages(params: Paging) {
   return request.get<TableData<Array<MessageInfo>>>('/api/admin/messages', params)
 }
 
-// 商品列表
+// Product list
 export function getAdminProducts(params: Paging) {
   return request.get<TableData<Array<ProductInfo>>>('/api/admin/products', params)
 }
-// 删除商品
+// Delete goods
 export function delAdminProduct(params: { id: string | number }) {
   return request.del(`/api/admin/products/${params.id}`)
 }
-// 新增商品
+// New product
 export function postAdminProduct(params: ProductInfo) {
   return request.post('/api/admin/products', params)
 }
-// 修改商品
+// Modify the product
 export function putAdminProduct(params: ProductInfo) {
   return request.put('/api/admin/products', params)
 }
 
-// 获取Token
+// Get token
 export function getAdminTokens(params: Paging) {
   return request.get<TableData<Array<TokenInfo>>>('/api/admin/token', params)
 }
 
-// 删除Token
+// Delete token
 export function delAdminToken(params: { id: string | number }) {
   return request.del(`/api/admin/token/${params.id}`)
 }
 
-// 新增token
+// New token
 export function postAdminToken(params: TokenInfo) {
   return request.post('/api/admin/token', params)
 }
 
-// 编辑token
+// Edit token
 export function putAdminToken(params: TokenInfo) {
   return request.put('/api/admin/token', params)
 }
-// 检查token
+// Check token
 export function postAdminTokenCheck(params: TokenInfo | { all: boolean }) {
   return request.post('/api/admin/token/check', params)
 }
 
-// 获取配置数据
+// Get configuration data
 export function getAdminConfig() {
   return request.get<Array<ConfigInfo>>('/api/admin/config')
 }
 
-// 修改配置数据
+// Modify the configuration data
 export function putAdminConfig(params: { [key: string]: any }) {
   return request.put<Array<ConfigInfo>>('/api/admin/config', params)
 }
 
-// 获取支付渠道
+// Get payment channel
 export function getAdminPayment(params: Paging) {
   return request.get<TableData<Array<PaymentInfo>>>('/api/admin/payment', params)
 }
 
-// 删除渠道
+// Delete channel
 export function delAdminPayment(params: { id: string | number }) {
   return request.del(`/api/admin/payment/${params.id}`)
 }
 
-// 新增渠道
+// New channel
 export function addAdminPayment(params: PaymentInfo) {
   return request.post('/api/admin/payment', params)
 }
-// 编辑渠道
+// Editing channel
 export function putAdminPayment(params: PaymentInfo) {
   return request.put('/api/admin/payment', params)
 }
 
-// 获取订单列表
+// Get orders list
 export function getAdminOrders(params: Paging) {
   return request.get<TableData<Array<OrderInfo>>>('/api/admin/orders', params)
 }
