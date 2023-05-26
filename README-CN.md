@@ -7,124 +7,123 @@ English / [简体中文](https://github.com/79E/ChatGpt-Web/blob/master/README-C
 
 A commercially-viable ChatGpt web application built with React.
 
-可部署商业化的 ChatGpt 网页应用。
+A commercial ChatGpt web application can be deployed.
 
-[Issues](https://github.com/79E/ChatGPT-Web/issues) / [Buy Me a Coffee](https://www.buymeacoffee.com/beggar) / [赞助我](https://files.catbox.moe/o0znrg.JPG)
+[Issues](https://github.com/79E/ChatGPT-Web/issues) / [Buy Me a Coffee](https://www.buymeacoffee.com/beggar) / [sponsor me](https://files.catbox.moe/o0znrg.JPG)
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/79E/ChatGpt-Web)
 
 </div>
 
-## 🐶 演示
-### 页面链接
-[Web 演示: https://www.aizj.top/](https://www.aizj.top/)
+## 🐶 Demonstrate
+### Page link
+[Web Demonstration: https://www.aizj.top/](https://www.aizj.top/)
 
-[Admin 演示: https://www.aizj.top/admin](https://www.aizj.top/admin)
+[Admin Demonstration: https://www.aizj.top/admin](https://www.aizj.top/admin)
 
 如需帮助请提交 [Issues](https://github.com/79E/ChatGPT-Web/issues) 或赞赏时留下联系方式。
 
-### 页面截图
+### Page screenshot
 
 ![cover](https://files.catbox.moe/tp963e.png)
 ![cover](https://files.catbox.moe/y5avbx.png)
 ![cover](https://files.catbox.moe/k16jsz.png)
 ![cover](https://files.catbox.moe/8o5oja.png)
 
-## 🤖 主要功能
+## 🤖 The main function
 
-- 后台管理系统,可对用户,Token,商品,卡密等进行管理
-- 精心设计的 UI，响应式设计
-- 极快的首屏加载速度（~100kb）
-- 支持Midjourney绘画和DALL·E模型绘画,GPT4等应用
-- 海量的内置 prompt 列表，来自[中文](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)和[英文](https://github.com/f/awesome-chatgpt-prompts)
-- 一键导出聊天记录，完整的 Markdown 支持
-- 支持自定义API地址（如：[openAI](https://api.openai.com) / [API2D](https://api2d.com/r/192767)）
+- The background management system can be managed to manage users, token, goods, card secrets, etc.
+- Carefully designed UI, responding design
+- Extremely fast first screen loading speed（~100kb）
+- Support MIDJOURNEY painting and DallE model painting, GPT4 and other applications
+- Massive built-in Prompt list，From [Chinese](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)[English](https://github.com/f/awesome-chatgpt-prompts)
+- One-click export chat record, complete Markdown support
+- Support custom API address（like：[openAI](https://api.openai.com) / [API2D](https://api2d.com/r/192767)）
 
-## 🎮 开始使用
-**Node 环境**
+## 🎮 start using
+**Node environment**
 
-`node` 需要 `^16 || ^18 || ^19` 版本（node >= 16.19.0），可以使用 nvm 管理本地多个 node 版本。
+`node` need `^16 || ^18 || ^19` Version（node >= 16.19.0），You can use NVM to manage multiple local Node versions.
 
 ```
-# 查看 node 版本
+# View node version
 node -v
 
-# 查看 npm 版本
+# View NPM version
 npm -v
 
-# 查看 yarn 版本
+# View yarn version
 yarn -v
 
 ```
 
-**1.先 `Fork` 本项目，然后克隆到本地。**
+**1.First `Fork` This project，Then cloned to the local area.**
 ```
 git clone https://github.com/79E/ChatGpt-Web.git
 ```
 
-**2.安装依赖**
+**2.Installation dependency**
 ```
 yarn install
 ```
 
-**3.运行**
+**3.run**
 ```
-# web项目启动
+# web Project begining
 yarn dev:web
 ```
 
-**4.打包**
+**4.Pack**
 ```
 yarn build
 ```
 
-## ⛺️ 环境变量
+## ⛺️ Environment variable
 
-> 本项目大多数配置项都通过环境变量来设置。
+> Most of the configuration items in this project are set through environmental variables.
 
 #### `VITE_APP_REQUEST_HOST` 
 
-请求服务端的`Host`地址。
+Request the `host` address of the service side.
 
 #### `VITE_APP_TITLE` 
 
-Chat Web 标题名称。
+Chat Web Title name.
 
 #### `VITE_APP_LOGO` 
 
 Chat Web Logo。
 
-## 🚧 开发
+## 🚧 Develop
 
-> 强烈不建议在本地进行开发或者部署，由于一些技术原因，很难在本地配置好 OpenAI API 代理，除非你能保证可以直连 OpenAI 服务器。
+> It is strongly not recommended to develop or deploy locally. Due to some technical reasons, it is difficult to configure the OpenAI API agent locally unless you can guarantee that you can directly connect the Openai server.
 
-#### 本地开发
+#### Local development
 
-1. 安装 nodejs 和 yarn具体细节请询问 ChatGPT
-2. 执行 `yarn install` 即可
-3. web项目开发 `yarn dev:web`
-4. 服务端项目开发 `yarn dev`
-5. 打包项目 `yarn build`
+1. For the specific details of Nodejs and Yarn, please ask ChatGPT
+2. Just execute `yarn install`
+3. web project development `yarn dev: web`
+4. Server project development `yarn dev`
+5. Packing item `yarn build`
 
-#### 服务端
+#### Server
 
-1. 前端请求服务端的 [接口文档](https://console-docs.apipost.cn/preview/38826c52f656ef05/044846bd536b67bb) 你们可以按照这个接口文档进行开发
-2. 如需帮助请提交 [Issues](https://github.com/79E/ChatGPT-Web/issues) 或赞赏时留下联系方式。
+1. The front -end request server [interface document](https://console-docs.apipost.cn/preview/38826c52f656ef05/044846bd536b67bb) You can develop according to this interface documentation
+2. If you need help, please submit [Issues](https://github.com/79E/ChatGPT-Web/issues) Or leave contact information when appreciated.
 
-## 🎯 部署
-> 直接将`WEB`项目打包好的 `dist` 目录上传到服务器即可。注意服务器IP地址位置！
+## 🎯 deploy
+> Just upload the `DIST` directory that the` web` item is wrapped to the server. Pay attention to the server IP address location!
 
 ### Vercel
-如果你将其托管在自己的 Vercel 服务器上，可点击 deploy 按钮来开始你的部署！
-
+If you host it on your Vercel server, click the deploy button to start your deployment!
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/79E/ChatGpt-Web)
 
-如需帮助请提交 [Issues](https://github.com/79E/ChatGPT-Web/issues) 或赞赏时留下联系方式。
+If you need help, please submit [Issues](https://github.com/79E/ChatGPT-Web/issues) Or leave contact information when appreciated.
 
-## 🧘 贡献者
+## 🧘 Contributor
 
-[见项目贡献者列表](https://github.com/79E/ChatGPT-Web/graphs/contributors)
+[See the list of project contributors](https://github.com/79E/ChatGPT-Web/graphs/contributors)
 
-## 📋 开源协议
+## 📋 Open source protocol
 
 [![License MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/79E/ChatGpt-Web/blob/master/license)
