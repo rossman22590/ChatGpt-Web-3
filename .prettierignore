@@ -5,3 +5,4 @@
 .output.js
 **/*.svg
 **/*.sh
+/src/*
