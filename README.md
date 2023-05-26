@@ -20,11 +20,11 @@ Can be deployed to commercialize the ChatGPT web application.
 
 [Web Demo: https://www.aizj.top/](https://www.aizj.top/)
 
-[Web 演示: https://www.aizj.top/](https://www.aizj.top/)
+[Web Demonstration: https://www.aizj.top/](https://www.aizj.top/)
 
 [Admin Demo: https://www.aizj.top/admin](https://www.aizj.top/admin)
 
-[Admin 演示: https://www.aizj.top/admin](https://www.aizj.top/admin)
+[Admin Demonstration: https://www.aizj.top/admin](https://www.aizj.top/admin)
 
 If you need help, please submit [Issues](https://github.com/79E/ChatGPT-Web/issues) Or leave contact information when appreciating.
 ### Snapshot
@@ -34,7 +34,7 @@ If you need help, please submit [Issues](https://github.com/79E/ChatGPT-Web/issu
 ![cover](https://files.catbox.moe/k16jsz.png)
 ![cover](https://files.catbox.moe/8o5oja.png)
 
-![赞赏](https://files.catbox.moe/wgi8v5.png)
+![Appreciate](https://files.catbox.moe/wgi8v5.png)
 
 ## 🤖 Major Function
 
